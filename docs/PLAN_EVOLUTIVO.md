@@ -98,7 +98,7 @@ Dos cosas en esta versión, agrupadas porque ambas son "terminar lo que ya empez
 
 ---
 
-## v1.5 — Buscador global (Prioridad 3)
+## v1.5 — Buscador global (Prioridad 3) ✅ COMPLETADA
 
 **Complejidad:** M
 **Depende de:** v1.1-v1.4 (necesita que exista contenido en todas las fuentes para tener sentido: conceptos, lecciones, notas, dudas, proyectos, recursos, bitácora)
@@ -111,7 +111,7 @@ Dos cosas en esta versión, agrupadas porque ambas son "terminar lo que ya empez
 
 ---
 
-## v1.6 — Indicadores de aprendizaje (Prioridad 4)
+## v1.6 — Indicadores de aprendizaje (Prioridad 4) ✅ COMPLETADA
 
 **Complejidad:** S/M
 **Depende de:** todas las anteriores (son las que generan los datos a medir)

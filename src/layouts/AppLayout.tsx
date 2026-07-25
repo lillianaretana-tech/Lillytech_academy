@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { NavLink, Outlet } from 'react-router-dom'
+import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import { useAuth } from '@/features/auth/hooks/useAuth'
 
 const navItems = [
@@ -15,7 +15,16 @@ const adminNavItems = [{ to: '/admin', label: 'Administración' }]
 
 export function AppLayout() {
   const { isAdmin, signOut, user } = useAuth()
+  const navigate = useNavigate()
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [globalQuery, setGlobalQuery] = useState('')
+
+  function handleGlobalSearch(e: React.FormEvent) {
+    e.preventDefault()
+    if (!globalQuery.trim()) return
+    navigate(`/search?q=${encodeURIComponent(globalQuery.trim())}`)
+    setMobileOpen(false)
+  }
 
   const items = [...navItems, ...(isAdmin ? adminNavItems : [])]
 
@@ -32,6 +41,14 @@ export function AppLayout() {
           <p className="font-display text-lg font-semibold text-ink">LillyTech</p>
           <p className="text-xs uppercase tracking-wide text-brass">Learning Academy</p>
         </div>
+        <form onSubmit={handleGlobalSearch} className="mb-4">
+          <input
+            className="input-field text-xs"
+            placeholder="Buscar en todo…"
+            value={globalQuery}
+            onChange={(e) => setGlobalQuery(e.target.value)}
+          />
+        </form>
         <nav className="flex flex-1 flex-col gap-1">
           {items.map((item) => (
             <NavLink key={item.to} to={item.to} className={linkClasses}>
@@ -65,6 +82,14 @@ export function AppLayout() {
 
         {mobileOpen && (
           <nav className="flex flex-col gap-1 border-b border-ink/10 bg-white/70 p-4 md:hidden">
+            <form onSubmit={handleGlobalSearch} className="mb-2">
+              <input
+                className="input-field text-xs"
+                placeholder="Buscar en todo…"
+                value={globalQuery}
+                onChange={(e) => setGlobalQuery(e.target.value)}
+              />
+            </form>
             {items.map((item) => (
               <NavLink
                 key={item.to}

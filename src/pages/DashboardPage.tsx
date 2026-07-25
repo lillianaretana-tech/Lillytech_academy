@@ -115,6 +115,56 @@ export function DashboardPage() {
         </div>
       </div>
 
+      <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">
+        <div className="card">
+          <p className="text-xs uppercase tracking-wide text-ink-soft">Conceptos aprendidos</p>
+          <p className="mt-1 font-display text-2xl font-semibold text-ink">
+            {data.conceptsLearned}
+          </p>
+        </div>
+        <div className="card">
+          <p className="text-xs uppercase tracking-wide text-ink-soft">Dudas resueltas</p>
+          <p className="mt-1 font-display text-2xl font-semibold text-ink">
+            {data.questionsResolved}
+          </p>
+        </div>
+        <div className="card">
+          <p className="text-xs uppercase tracking-wide text-ink-soft">Notas creadas</p>
+          <p className="mt-1 font-display text-2xl font-semibold text-ink">{data.notesCreated}</p>
+        </div>
+        <div className="card">
+          <p className="text-xs uppercase tracking-wide text-ink-soft">Proyectos</p>
+          <p className="mt-1 font-display text-2xl font-semibold text-ink">{data.projectsCount}</p>
+        </div>
+      </div>
+
+      {data.progressByStage.length > 0 && (
+        <div className="card mt-6">
+          <p className="mb-3 text-sm font-semibold text-ink">Progreso por etapa</p>
+          <div className="flex flex-col gap-2">
+            {data.progressByStage.map((stage) => {
+              const pct = stage.total === 0 ? 0 : Math.round((stage.completed / stage.total) * 100)
+              return (
+                <div key={stage.stageTitle}>
+                  <div className="mb-1 flex items-center justify-between text-xs">
+                    <span className="text-ink">{stage.stageTitle}</span>
+                    <span className="text-ink-soft">
+                      {stage.completed}/{stage.total}
+                    </span>
+                  </div>
+                  <div className="h-1.5 w-full overflow-hidden rounded-full bg-paper-muted">
+                    <div
+                      className="h-full rounded-full bg-brass transition-all"
+                      style={{ width: `${pct}%` }}
+                    />
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      )}
+
       <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="card">
           <p className="mb-2 text-sm font-semibold text-ink">Próxima lección recomendada</p>

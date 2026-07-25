@@ -2,7 +2,7 @@
 
 Academia personal de aprendizaje para LillyTech: rutas, etapas, cursos, módulos y lecciones con progreso, notas, dudas, ejercicios, proyectos prácticos y certificados internos.
 
-**Estado actual: v1.4 completa.** Sobre la Biblioteca de Conceptos de v1.2, se agregó el nivel de dominio personal por concepto (v1.3 — *No lo conozco / Lo entiendo / Lo puedo explicar / Lo puedo aplicar / Lo podría enseñar*) y la Bitácora completa (v1.4 — diario de aprendizaje cronológico, agrupado por día, con más tipos de evento registrados: notas, dudas, proyectos y cambios de nivel de dominio, no solo lecciones). Falta v1.5 (buscador global) y v1.6 (indicadores de aprendizaje) — ver `docs/PLAN_EVOLUTIVO.md`.
+**Estado actual: v1.6 completa — toda la estructura del plan evolutivo está construida.** Buscador global (`/search`, accesible desde cualquier pantalla) sobre conceptos, lecciones, notas y proyectos. Dashboard ampliado con indicadores de aprendizaje (conceptos aprendidos, dudas resueltas, notas creadas, proyectos, progreso por etapa). De acá en más, el trabajo que sigue es cargar contenido real — ver `docs/PLAN_EVOLUTIVO.md` para la visión futura (v2/v3, Asistente de Aprendizaje IA) cuando haya volumen suficiente.
 
 ## Requisitos
 

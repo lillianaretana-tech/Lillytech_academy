@@ -3,6 +3,12 @@ import { listPublishedPaths, getPathTree } from './learningStructure.service'
 import { listMyEnrollments, listMyProgress } from './progress.service'
 import type { Lesson, LearningActivity } from '@/types/database.types'
 
+export interface StageProgress {
+  stageTitle: string
+  total: number
+  completed: number
+}
+
 export interface DashboardData {
   activePathTitle: string | null
   activePathId: string | null
@@ -13,6 +19,11 @@ export interface DashboardData {
   studiedMinutes: number
   nextLesson: (Lesson & { moduleId: string }) | null
   recentActivity: LearningActivity[]
+  conceptsLearned: number
+  questionsResolved: number
+  notesCreated: number
+  projectsCount: number
+  progressByStage: StageProgress[]
 }
 
 export async function loadDashboard(userId: string): Promise<DashboardData> {
@@ -32,6 +43,11 @@ export async function loadDashboard(userId: string): Promise<DashboardData> {
     studiedMinutes: 0,
     nextLesson: null,
     recentActivity: [],
+    conceptsLearned: 0,
+    questionsResolved: 0,
+    notesCreated: 0,
+    projectsCount: 0,
+    progressByStage: [],
   }
 
   // La "ruta activa" es la primera en la que la estudiante está inscrita;
@@ -66,6 +82,14 @@ export async function loadDashboard(userId: string): Promise<DashboardData> {
     .filter((l) => progressByLesson.get(l.id)?.status === 'completed')
     .reduce((acc, l) => acc + (l.estimated_minutes ?? 0), 0)
 
+  const progressByStage: StageProgress[] = tree.stages.map((stage) => {
+    const stageLessons = stage.courses.flatMap((c) => c.modules.flatMap((m) => m.lessons))
+    const completed = stageLessons.filter(
+      (l) => progressByLesson.get(l.id)?.status === 'completed',
+    ).length
+    return { stageTitle: stage.title, total: stageLessons.length, completed }
+  })
+
   const nextLesson =
     allLessons.find((l) => {
       const status = progressByLesson.get(l.id)?.status ?? 'not_started'
@@ -79,6 +103,37 @@ export async function loadDashboard(userId: string): Promise<DashboardData> {
     .order('created_at', { ascending: false })
     .limit(5)
 
+  const [
+    { count: conceptsLearned },
+    { count: questionsResolved },
+    { count: personalNotesCount },
+    { count: conceptNotesCount },
+    { count: projectsCount },
+  ] = await Promise.all([
+    supabase
+      .from('concept_mastery')
+      .select('*', { count: 'exact', head: true })
+      .eq('user_id', userId)
+      .in('level', ['can_apply', 'can_teach']),
+    supabase
+      .from('learning_questions')
+      .select('*', { count: 'exact', head: true })
+      .eq('user_id', userId)
+      .eq('status', 'resolved'),
+    supabase
+      .from('personal_notes')
+      .select('*', { count: 'exact', head: true })
+      .eq('user_id', userId),
+    supabase
+      .from('concept_notes')
+      .select('*', { count: 'exact', head: true })
+      .eq('user_id', userId),
+    supabase
+      .from('practical_projects')
+      .select('*', { count: 'exact', head: true })
+      .eq('user_id', userId),
+  ])
+
   return {
     activePathTitle: tree.title,
     activePathId: tree.id,
@@ -90,5 +145,10 @@ export async function loadDashboard(userId: string): Promise<DashboardData> {
     studiedMinutes,
     nextLesson,
     recentActivity: (activity ?? []) as LearningActivity[],
+    conceptsLearned: conceptsLearned ?? 0,
+    questionsResolved: questionsResolved ?? 0,
+    notesCreated: (personalNotesCount ?? 0) + (conceptNotesCount ?? 0),
+    projectsCount: projectsCount ?? 0,
+    progressByStage,
   }
 }
