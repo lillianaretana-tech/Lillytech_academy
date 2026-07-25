@@ -63,7 +63,7 @@ Vamos tachando acá conforme carguemos lecciones reales. La estructura (etapas/c
 - [x] Stage y producción
 - [x] Variables de entorno
 
-## Etapa 4 — Arquitectura de aplicaciones 🟡 EN PROGRESO
+## Etapa 4 — Arquitectura de aplicaciones ✅ COMPLETA
 
 **Módulo 1 — Las piezas de una aplicación** ✅ completo
 - [x] Frontend
@@ -79,12 +79,12 @@ Vamos tachando acá conforme carguemos lecciones reales. La estructura (etapas/c
 - [x] Autorización
 - [x] Flujo de datos
 
-**Módulo 3 — Arquitecturas y entornos** (sin crear todavía)
-- [ ] Arquitectura multiusuario
-- [ ] Arquitectura multiempresa
-- [ ] Separación de ambientes
+**Módulo 3 — Arquitecturas y entornos** ✅ completo
+- [x] Arquitectura multiusuario
+- [x] Arquitectura multiempresa
+- [x] Separación de ambientes
 
-## Etapa 5 — Desarrollo frontend ⬜
+## Etapa 5 — Desarrollo frontend ⬜ SIGUIENTE RECOMENDADA
 
 - [ ] HTML
 - [ ] CSS
