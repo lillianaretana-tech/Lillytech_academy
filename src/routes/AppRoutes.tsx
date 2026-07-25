@@ -4,9 +4,11 @@ import { AppLayout } from '@/layouts/AppLayout'
 import { ProtectedRoute } from './ProtectedRoute'
 import { AdminRoute } from './AdminRoute'
 import { LoginPage } from '@/pages/LoginPage'
+import { SignupPage } from '@/pages/SignupPage'
 import { ForgotPasswordPage } from '@/pages/ForgotPasswordPage'
 import { DashboardPage } from '@/pages/DashboardPage'
 import { LibraryPage } from '@/pages/LibraryPage'
+import { LessonPage } from '@/pages/LessonPage'
 import { ProjectsPage } from '@/pages/ProjectsPage'
 import { NotesPage } from '@/pages/NotesPage'
 import { AdminPage } from '@/pages/AdminPage'
@@ -19,6 +21,7 @@ export function AppRoutes() {
 
       <Route element={<AuthLayout />}>
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
       </Route>
 
@@ -26,6 +29,7 @@ export function AppRoutes() {
         <Route element={<AppLayout />}>
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/library" element={<LibraryPage />} />
+          <Route path="/lesson/:lessonId" element={<LessonPage />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/notes" element={<NotesPage />} />
 

@@ -10,6 +10,11 @@ interface AuthContextValue {
   isAdmin: boolean
   loading: boolean
   signIn: (email: string, password: string) => Promise<{ error: string | null }>
+  signUp: (
+    email: string,
+    password: string,
+    fullName: string,
+  ) => Promise<{ error: string | null }>
   signOut: () => Promise<void>
   requestPasswordReset: (email: string) => Promise<{ error: string | null }>
 }
@@ -60,6 +65,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return { error: error?.message ?? null }
   }
 
+  const signUp: AuthContextValue['signUp'] = async (email, password, fullName) => {
+    const { error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: { data: { full_name: fullName } },
+    })
+    return { error: error?.message ?? null }
+  }
+
   const signOut = async () => {
     await supabase.auth.signOut()
   }
@@ -78,6 +92,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     isAdmin: roles.includes('admin'),
     loading,
     signIn,
+    signUp,
     signOut,
     requestPasswordReset,
   }

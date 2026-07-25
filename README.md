@@ -2,7 +2,7 @@
 
 Academia personal de aprendizaje para LillyTech: rutas, etapas, cursos, módulos y lecciones con progreso, notas, dudas, ejercicios, proyectos prácticos y certificados internos.
 
-**Estado actual: Fase 3 (base de datos) completa.** El frontend (Fase 2) ya tenía login funcional, rutas protegidas y layout responsive. Ahora también existen las migraciones SQL completas (18 tablas + RLS) y el seed inicial. Faltan las vistas funcionales conectadas a esos datos (Fase 4 en adelante) — hoy las páginas de Dashboard/Biblioteca/Proyectos/Notas siguen siendo placeholders.
+**Estado actual: Fase 4 (experiencia de estudiante) completa.** Dashboard, Biblioteca, vista de lección, Notas y Proyectos ya leen y escriben datos reales de Supabase. Falta el panel de Administración funcional (Fase 5, hoy sigue siendo placeholder) y certificados/historial completo (Fase 6).
 
 ## Requisitos
 

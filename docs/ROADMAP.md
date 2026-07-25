@@ -5,10 +5,10 @@
 - **Fase 1** — Diagnóstico y planificación (`IMPLEMENTATION_PLAN.md`)
 - **Fase 2** — Base del proyecto: scaffold Vite+React+TS+Tailwind, auth, rutas protegidas, layout responsive
 - **Fase 3** — Base de datos: 18 tablas, RLS completo, seed con ruta inicial + 3 lecciones reales
+- **Fase 4** — Experiencia de estudiante: Dashboard con progreso real, Biblioteca navegable (ruta → etapa → curso → módulo → lección), vista de lección completa (contenido, ejercicios, notas, dudas, marcar completada), Notas con búsqueda, Proyectos prácticos con CRUD. Se agregó también la pantalla de registro (`/signup`) que había quedado pendiente en la Fase 2.
 
 ## Próximo
 
-- **Fase 4** — Experiencia de estudiante: Dashboard funcional, Biblioteca navegable, vista de lección completa, notas, dudas, ejercicios, proyectos prácticos — todo conectado a Supabase real.
 - **Fase 5** — Administración: panel admin con CRUD completo de contenido, orden, publicación, consulta de progreso.
 - **Fase 6** — Certificados y actividad: historial de eventos, generación de certificados con código único, vista imprimible.
 - **Fase 7** — Pruebas y documentación final.
