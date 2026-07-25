@@ -1,4 +1,5 @@
 import { supabase } from '@/lib/supabaseClient'
+import { logActivity } from './progress.service'
 import type { LearningQuestion } from '@/types/database.types'
 
 export async function listQuestionsForLesson(
@@ -27,6 +28,7 @@ export async function createQuestion(
     .select()
     .single()
   if (error) throw error
+  await logActivity(userId, 'question_created', { lesson_id: lessonId })
   return data as LearningQuestion
 }
 

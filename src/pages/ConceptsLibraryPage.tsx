@@ -1,18 +1,37 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { listPublishedConcepts } from '@/services/concepts.service'
-import type { Concept } from '@/types/database.types'
+import { useAuth } from '@/features/auth/hooks/useAuth'
+import { listPublishedConcepts, listMyMastery } from '@/services/concepts.service'
+import type { Concept, MasteryLevel } from '@/types/database.types'
+
+const masteryLabels: Record<MasteryLevel, string> = {
+  unknown: 'No lo conozco',
+  understand: 'Lo entiendo',
+  can_explain: 'Lo puedo explicar',
+  can_apply: 'Lo puedo aplicar',
+  can_teach: 'Lo podría enseñar',
+}
 
 export function ConceptsLibraryPage() {
+  const { user } = useAuth()
   const [concepts, setConcepts] = useState<Concept[]>([])
+  const [masteryMap, setMasteryMap] = useState<Map<string, MasteryLevel>>(new Map())
   const [loading, setLoading] = useState(true)
   const [search, setSearch] = useState('')
 
   useEffect(() => {
-    listPublishedConcepts()
-      .then(setConcepts)
-      .finally(() => setLoading(false))
-  }, [])
+    async function load() {
+      if (!user) return
+      const [conceptsData, masteryData] = await Promise.all([
+        listPublishedConcepts(),
+        listMyMastery(user.id),
+      ])
+      setConcepts(conceptsData)
+      setMasteryMap(new Map(masteryData.map((m) => [m.concept_id, m.level])))
+      setLoading(false)
+    }
+    load()
+  }, [user?.id])
 
   const filtered = useMemo(() => {
     if (!search.trim()) return concepts
@@ -57,7 +76,12 @@ export function ConceptsLibraryPage() {
               to={`/concepts/${concept.id}`}
               className="card hover:bg-paper-muted"
             >
-              <p className="text-sm font-semibold text-ink">{concept.title}</p>
+              <div className="flex items-start justify-between gap-2">
+                <p className="text-sm font-semibold text-ink">{concept.title}</p>
+                <span className="whitespace-nowrap text-[10px] text-brass-dark">
+                  {masteryLabels[masteryMap.get(concept.id) ?? 'unknown']}
+                </span>
+              </div>
               {concept.what_is && (
                 <p className="mt-1 line-clamp-2 text-xs text-ink-soft">{concept.what_is}</p>
               )}

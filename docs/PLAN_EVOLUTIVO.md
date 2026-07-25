@@ -70,7 +70,7 @@ Dos cosas en esta versión, agrupadas porque ambas son "terminar lo que ya empez
 
 ---
 
-## v1.3 — Nivel de dominio (Prioridad 5)
+## v1.3 — Nivel de dominio (Prioridad 5) ✅ COMPLETADA
 
 **Complejidad:** S (chica)
 **Depende de:** v1.1/v1.2 (el campo `nivel_dominio` ya existe en el esquema, esta versión es la UI + lógica)
@@ -84,7 +84,7 @@ Dos cosas en esta versión, agrupadas porque ambas son "terminar lo que ya empez
 
 ---
 
-## v1.4 — Bitácora completa (Prioridad 2)
+## v1.4 — Bitácora completa (Prioridad 2) ✅ COMPLETADA
 
 **Complejidad:** S
 **Depende de:** nada nuevo — la tabla `learning_activity` ya existe y ya registra eventos.

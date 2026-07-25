@@ -2,7 +2,7 @@
 
 Academia personal de aprendizaje para LillyTech: rutas, etapas, cursos, módulos y lecciones con progreso, notas, dudas, ejercicios, proyectos prácticos y certificados internos.
 
-**Estado actual: v1.2 completa.** La Biblioteca de Conceptos ya tiene vista completa: ficha por concepto (qué es, por qué existe, qué problema resuelve, cuándo usarlo, errores comunes, relaciones con otros conceptos, lecciones relacionadas, proyectos relacionados, recursos, notas personales), gestión completa desde `/admin/concepts`, y enlace cruzado desde cualquier lección. El primer concepto real (Row Level Security) ya está cargado. Falta v1.3 (nivel de dominio) en adelante — ver `docs/PLAN_EVOLUTIVO.md`.
+**Estado actual: v1.4 completa.** Sobre la Biblioteca de Conceptos de v1.2, se agregó el nivel de dominio personal por concepto (v1.3 — *No lo conozco / Lo entiendo / Lo puedo explicar / Lo puedo aplicar / Lo podría enseñar*) y la Bitácora completa (v1.4 — diario de aprendizaje cronológico, agrupado por día, con más tipos de evento registrados: notas, dudas, proyectos y cambios de nivel de dominio, no solo lecciones). Falta v1.5 (buscador global) y v1.6 (indicadores de aprendizaje) — ver `docs/PLAN_EVOLUTIVO.md`.
 
 ## Requisitos
 

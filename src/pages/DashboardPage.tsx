@@ -145,7 +145,12 @@ export function DashboardPage() {
         </div>
 
         <div className="card">
-          <p className="mb-2 text-sm font-semibold text-ink">Actividad reciente</p>
+          <div className="mb-2 flex items-center justify-between">
+            <p className="text-sm font-semibold text-ink">Actividad reciente</p>
+            <Link to="/bitacora" className="text-xs text-brass hover:underline">
+              Ver bitácora completa
+            </Link>
+          </div>
           {data.recentActivity.length === 0 ? (
             <p className="text-sm text-ink-soft">
               Todavía no hay actividad registrada — arrancá una lección para verla acá.

@@ -11,6 +11,7 @@ import { LibraryPage } from '@/pages/LibraryPage'
 import { LessonPage } from '@/pages/LessonPage'
 import { ConceptsLibraryPage } from '@/pages/ConceptsLibraryPage'
 import { ConceptDetailPage } from '@/pages/ConceptDetailPage'
+import { BitacoraPage } from '@/pages/BitacoraPage'
 import { ProjectsPage } from '@/pages/ProjectsPage'
 import { NotesPage } from '@/pages/NotesPage'
 import { AdminContentPage } from '@/pages/admin/AdminContentPage'
@@ -38,6 +39,7 @@ export function AppRoutes() {
           <Route path="/lesson/:lessonId" element={<LessonPage />} />
           <Route path="/concepts" element={<ConceptsLibraryPage />} />
           <Route path="/concepts/:conceptId" element={<ConceptDetailPage />} />
+          <Route path="/bitacora" element={<BitacoraPage />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/notes" element={<NotesPage />} />
 

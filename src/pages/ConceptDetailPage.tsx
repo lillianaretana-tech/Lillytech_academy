@@ -10,6 +10,8 @@ import {
   listConceptNotes,
   createConceptNote,
   deleteConceptNote,
+  getConceptMastery,
+  setConceptMastery,
   type ConceptWithRelations,
 } from '@/services/concepts.service'
 import type {
@@ -18,6 +20,7 @@ import type {
   PracticalProject,
   ConceptResource,
   ConceptNote,
+  MasteryLevel,
 } from '@/types/database.types'
 
 export function ConceptDetailPage() {
@@ -30,6 +33,8 @@ export function ConceptDetailPage() {
   const [projects, setProjects] = useState<PracticalProject[]>([])
   const [resources, setResources] = useState<ConceptResource[]>([])
   const [notes, setNotes] = useState<ConceptNote[]>([])
+  const [mastery, setMastery] = useState<MasteryLevel>('unknown')
+  const [savingMastery, setSavingMastery] = useState(false)
   const [newNote, setNewNote] = useState('')
   const [savingNote, setSavingNote] = useState(false)
   const [loading, setLoading] = useState(true)
@@ -38,7 +43,7 @@ export function ConceptDetailPage() {
     async function load() {
       if (!conceptId || !user) return
       setLoading(true)
-      const [conceptData, relationsData, lessonsData, projectsData, resourcesData, notesData] =
+      const [conceptData, relationsData, lessonsData, projectsData, resourcesData, notesData, masteryData] =
         await Promise.all([
           getConcept(conceptId),
           getConceptRelations(conceptId),
@@ -46,6 +51,7 @@ export function ConceptDetailPage() {
           getConceptProjects(conceptId, user.id),
           getConceptResources(conceptId),
           listConceptNotes(user.id, conceptId),
+          getConceptMastery(user.id, conceptId),
         ])
       setConcept(conceptData)
       setRelations(relationsData)
@@ -53,6 +59,7 @@ export function ConceptDetailPage() {
       setProjects(projectsData)
       setResources(resourcesData)
       setNotes(notesData)
+      setMastery(masteryData?.level ?? 'unknown')
       setLoading(false)
     }
     load()
@@ -75,6 +82,17 @@ export function ConceptDetailPage() {
     setNotes((prev) => prev.filter((n) => n.id !== id))
   }
 
+  async function handleMasteryChange(level: MasteryLevel) {
+    if (!user || !conceptId) return
+    setSavingMastery(true)
+    try {
+      await setConceptMastery(user.id, conceptId, level)
+      setMastery(level)
+    } finally {
+      setSavingMastery(false)
+    }
+  }
+
   if (loading) return <p className="text-sm text-ink-soft">Cargando concepto…</p>
 
   if (!concept) {
@@ -95,6 +113,7 @@ export function ConceptDetailPage() {
           ← Volver a Conceptos
         </Link>
         <h1 className="mt-2 font-display text-2xl font-semibold text-ink">{concept.title}</h1>
+        <MasteryPicker value={mastery} onChange={handleMasteryChange} disabled={savingMastery} />
       </div>
 
       {concept.what_is && (
@@ -245,6 +264,50 @@ function MultilineText({ text }: { text: string }) {
       {text.split('\n').map((line, i) => (
         <p key={i}>{line}</p>
       ))}
+    </div>
+  )
+}
+
+const masteryLevels: { value: MasteryLevel; label: string }[] = [
+  { value: 'unknown', label: 'No lo conozco' },
+  { value: 'understand', label: 'Lo entiendo' },
+  { value: 'can_explain', label: 'Lo puedo explicar' },
+  { value: 'can_apply', label: 'Lo puedo aplicar' },
+  { value: 'can_teach', label: 'Lo podría enseñar' },
+]
+
+function MasteryPicker({
+  value,
+  onChange,
+  disabled,
+}: {
+  value: MasteryLevel
+  onChange: (level: MasteryLevel) => void
+  disabled: boolean
+}) {
+  const currentIndex = masteryLevels.findIndex((l) => l.value === value)
+  return (
+    <div className="mt-3">
+      <p className="mb-1 text-xs font-medium text-ink-soft">Tu nivel de dominio</p>
+      <div className="flex flex-wrap gap-1">
+        {masteryLevels.map((level, i) => (
+          <button
+            key={level.value}
+            type="button"
+            disabled={disabled}
+            onClick={() => onChange(level.value)}
+            className={`rounded-full px-3 py-1 text-xs transition-colors ${
+              i <= currentIndex && value !== 'unknown'
+                ? 'bg-brass text-paper'
+                : i === currentIndex
+                  ? 'bg-paper-muted text-ink-soft ring-1 ring-brass'
+                  : 'bg-paper-muted text-ink-soft hover:bg-brass/10'
+            }`}
+          >
+            {level.label}
+          </button>
+        ))}
+      </div>
     </div>
   )
 }

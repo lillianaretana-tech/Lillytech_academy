@@ -8,6 +8,7 @@ const navItems = [
   { to: '/concepts', label: 'Conceptos' },
   { to: '/projects', label: 'Proyectos' },
   { to: '/notes', label: 'Notas' },
+  { to: '/bitacora', label: 'Bitácora' },
 ]
 
 const adminNavItems = [{ to: '/admin', label: 'Administración' }]

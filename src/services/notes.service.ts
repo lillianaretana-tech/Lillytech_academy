@@ -1,4 +1,5 @@
 import { supabase } from '@/lib/supabaseClient'
+import { logActivity } from './progress.service'
 import type { PersonalNote } from '@/types/database.types'
 
 export async function listMyNotes(userId: string): Promise<PersonalNote[]> {
@@ -36,6 +37,7 @@ export async function createNote(
     .select()
     .single()
   if (error) throw error
+  await logActivity(userId, 'note_created', { lesson_id: lessonId })
   return data as PersonalNote
 }
 

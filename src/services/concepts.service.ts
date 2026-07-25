@@ -1,4 +1,5 @@
 import { supabase } from '@/lib/supabaseClient'
+import { logActivity } from './progress.service'
 import type {
   Concept,
   ConceptRelation,
@@ -6,6 +7,8 @@ import type {
   ConceptNote,
   Lesson,
   PracticalProject,
+  ConceptMastery,
+  MasteryLevel,
 } from '@/types/database.types'
 
 export async function listPublishedConcepts(): Promise<Concept[]> {
@@ -143,4 +146,40 @@ export async function createConceptNote(
 export async function deleteConceptNote(noteId: string): Promise<void> {
   const { error } = await supabase.from('concept_notes').delete().eq('id', noteId)
   if (error) throw error
+}
+
+// Nivel de dominio — personal por usuaria y concepto (v1.3).
+export async function getConceptMastery(
+  userId: string,
+  conceptId: string,
+): Promise<ConceptMastery | null> {
+  const { data, error } = await supabase
+    .from('concept_mastery')
+    .select('*')
+    .eq('user_id', userId)
+    .eq('concept_id', conceptId)
+    .maybeSingle()
+  if (error) throw error
+  return data as ConceptMastery | null
+}
+
+export async function listMyMastery(userId: string): Promise<ConceptMastery[]> {
+  const { data, error } = await supabase
+    .from('concept_mastery')
+    .select('*')
+    .eq('user_id', userId)
+  if (error) throw error
+  return (data ?? []) as ConceptMastery[]
+}
+
+export async function setConceptMastery(
+  userId: string,
+  conceptId: string,
+  level: MasteryLevel,
+): Promise<void> {
+  const { error } = await supabase
+    .from('concept_mastery')
+    .upsert({ user_id: userId, concept_id: conceptId, level }, { onConflict: 'user_id,concept_id' })
+  if (error) throw error
+  await logActivity(userId, 'concept_mastery_updated', { concept_id: conceptId, level })
 }

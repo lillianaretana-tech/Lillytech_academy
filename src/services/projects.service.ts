@@ -1,4 +1,5 @@
 import { supabase } from '@/lib/supabaseClient'
+import { logActivity } from './progress.service'
 import type { PracticalProject, ProjectStatus } from '@/types/database.types'
 
 export async function listMyProjects(userId: string): Promise<PracticalProject[]> {
@@ -34,6 +35,7 @@ export async function createProject(
     .select()
     .single()
   if (error) throw error
+  await logActivity(userId, 'project_updated', { project_id: data.id, name: input.name })
   return data as PracticalProject
 }
 
