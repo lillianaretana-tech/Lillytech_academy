@@ -63,18 +63,23 @@ Vamos tachando acá conforme carguemos lecciones reales. La estructura (etapas/c
 - [x] Stage y producción
 - [x] Variables de entorno
 
-## Etapa 4 — Arquitectura de aplicaciones ⬜ SIGUIENTE RECOMENDADA
+## Etapa 4 — Arquitectura de aplicaciones 🟡 EN PROGRESO
 
-- [ ] Frontend
-- [ ] Backend
-- [ ] Base de datos
-- [ ] API
-- [ ] JSON
+**Módulo 1 — Las piezas de una aplicación** ✅ completo
+- [x] Frontend
+- [x] Backend
+- [x] Base de datos
+- [x] API
+- [x] JSON
+
+**Módulo 2 — Estado y sesión** (sin crear todavía)
 - [ ] Estado de la aplicación
 - [ ] Sesiones
 - [ ] Autenticación
 - [ ] Autorización
 - [ ] Flujo de datos
+
+**Módulo 3 — Arquitecturas y entornos** (sin crear todavía)
 - [ ] Arquitectura multiusuario
 - [ ] Arquitectura multiempresa
 - [ ] Separación de ambientes
