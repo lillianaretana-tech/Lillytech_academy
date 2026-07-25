@@ -49,12 +49,12 @@ Vamos tachando acá conforme carguemos lecciones reales. La estructura (etapas/c
 - [x] Claves anon y service role
 - [x] Buenas prácticas de seguridad
 
-**Módulo 3 — Funciones y datos en tiempo real** (sin crear todavía)
-- [ ] Funciones PostgreSQL
-- [ ] RPC
-- [ ] Triggers
-- [ ] Storage
-- [ ] Realtime
+**Módulo 3 — Funciones y datos en tiempo real** ✅ completo
+- [x] Funciones PostgreSQL
+- [x] RPC
+- [x] Triggers
+- [x] Storage
+- [x] Realtime
 
 **Módulo 4 — Operación del proyecto** (sin crear todavía)
 - [ ] Migraciones
