@@ -13,7 +13,7 @@ Vamos tachando acá conforme carguemos lecciones reales. La estructura (etapas/c
 - [ ] Integridad de datos
 - [ ] Diseño de una base de datos
 
-## Etapa 2 — SQL 🟡 EN PROGRESO
+## Etapa 2 — SQL ✅ COMPLETA
 
 **Módulo 1 — Consultar datos con SELECT** ✅ completo
 - [x] Qué es SELECT y para qué sirve
@@ -25,14 +25,13 @@ Vamos tachando acá conforme carguemos lecciones reales. La estructura (etapas/c
 - [x] UPDATE — modificar filas existentes
 - [x] DELETE — eliminar filas
 
-**Módulo 3 — Consultas avanzadas** (sin crear todavía)
-- [ ] JOIN — combinar datos de varias tablas
-- [ ] GROUP BY — agrupar y resumir datos
-- [ ] Funciones (COUNT, SUM, AVG, etc.)
-- [ ] Vistas
-- [ ] Transacciones
-- [ ] Índices
-- [ ] Consultas de diagnóstico
+**Módulo 3 — Consultas avanzadas** ✅ completo
+- [x] JOIN — combinar datos de varias tablas
+- [x] GROUP BY — agrupar y resumir datos (incluye funciones de agregación)
+- [x] Vistas
+- [x] Transacciones
+- [x] Índices
+- [x] Consultas de diagnóstico
 
 ## Etapa 3 — Supabase 🟡 EN PROGRESO
 
@@ -183,7 +182,7 @@ Vamos tachando acá conforme carguemos lecciones reales. La estructura (etapas/c
 
 ## Biblioteca de Conceptos — conceptos cargados
 
-- [x] Row Level Security (RLS) — enlazado a "Authentication y la tabla auth.users" (Etapa 3)
+- [x] Row Level Security (RLS) — enlazado a "Authentication y la tabla auth.users" y a "Consultas de diagnóstico" (Etapa 3 y Etapa 2)
 
 ## Proyectos prácticos — registrados en la app
 
