@@ -72,12 +72,12 @@ Vamos tachando acá conforme carguemos lecciones reales. La estructura (etapas/c
 - [x] API
 - [x] JSON
 
-**Módulo 2 — Estado y sesión** (sin crear todavía)
-- [ ] Estado de la aplicación
-- [ ] Sesiones
-- [ ] Autenticación
-- [ ] Autorización
-- [ ] Flujo de datos
+**Módulo 2 — Estado y sesión** ✅ completo
+- [x] Estado de la aplicación
+- [x] Sesiones
+- [x] Autenticación
+- [x] Autorización
+- [x] Flujo de datos
 
 **Módulo 3 — Arquitecturas y entornos** (sin crear todavía)
 - [ ] Arquitectura multiusuario
