@@ -11,7 +11,9 @@ import { LibraryPage } from '@/pages/LibraryPage'
 import { LessonPage } from '@/pages/LessonPage'
 import { ProjectsPage } from '@/pages/ProjectsPage'
 import { NotesPage } from '@/pages/NotesPage'
-import { AdminPage } from '@/pages/AdminPage'
+import { AdminContentPage } from '@/pages/admin/AdminContentPage'
+import { AdminLessonEditPage } from '@/pages/admin/AdminLessonEditPage'
+import { AdminProgressPage } from '@/pages/admin/AdminProgressPage'
 import { NotFoundPage } from '@/pages/NotFoundPage'
 
 export function AppRoutes() {
@@ -34,7 +36,9 @@ export function AppRoutes() {
           <Route path="/notes" element={<NotesPage />} />
 
           <Route element={<AdminRoute />}>
-            <Route path="/admin" element={<AdminPage />} />
+            <Route path="/admin" element={<AdminContentPage />} />
+            <Route path="/admin/lessons/:lessonId" element={<AdminLessonEditPage />} />
+            <Route path="/admin/progress" element={<AdminProgressPage />} />
           </Route>
         </Route>
       </Route>
