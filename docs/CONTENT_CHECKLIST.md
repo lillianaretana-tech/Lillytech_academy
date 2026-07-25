@@ -33,9 +33,9 @@ Vamos tachando acá conforme carguemos lecciones reales. La estructura (etapas/c
 - [x] Índices
 - [x] Consultas de diagnóstico
 
-## Etapa 3 — Supabase 🟡 EN PROGRESO
+## Etapa 3 — Supabase ✅ COMPLETA
 
-*(ya se enlazó el concepto "Row Level Security" con la Lección 3 de este módulo)*
+*(concepto "Row Level Security" enlazado a 5 lecciones de esta etapa)*
 
 **Módulo 1 — Primeros pasos con tu proyecto** ✅ completo
 - [x] Qué es un proyecto de Supabase y cómo se organiza
@@ -56,14 +56,14 @@ Vamos tachando acá conforme carguemos lecciones reales. La estructura (etapas/c
 - [x] Storage
 - [x] Realtime
 
-**Módulo 4 — Operación del proyecto** (sin crear todavía)
-- [ ] Migraciones
-- [ ] Backups
-- [ ] Logs
-- [ ] Stage y producción
-- [ ] Variables de entorno
+**Módulo 4 — Operación del proyecto** ✅ completo
+- [x] Migraciones
+- [x] Backups
+- [x] Logs
+- [x] Stage y producción
+- [x] Variables de entorno
 
-## Etapa 4 — Arquitectura de aplicaciones ⬜
+## Etapa 4 — Arquitectura de aplicaciones ⬜ SIGUIENTE RECOMENDADA
 
 - [ ] Frontend
 - [ ] Backend
