@@ -1,0 +1,198 @@
+# LillyTech Academy — Checklist de contenido
+
+Vamos tachando acá conforme carguemos lecciones reales. La estructura (etapas/cursos) ya existe para las 11 — esto es solo el contenido.
+
+## Etapa 1 — Fundamentos de bases de datos ✅ COMPLETA
+
+- [x] Qué es una base de datos
+- [x] Tablas, filas y columnas
+- [x] Claves primarias
+- [ ] Claves foráneas
+- [ ] Relaciones (uno a uno, uno a muchos, muchos a muchos)
+- [ ] Normalización
+- [ ] Integridad de datos
+- [ ] Diseño de una base de datos
+
+## Etapa 2 — SQL 🟡 EN PROGRESO
+
+**Módulo 1 — Consultar datos con SELECT** ✅ completo
+- [x] Qué es SELECT y para qué sirve
+- [x] Filtrar resultados con WHERE
+- [x] Ordenar resultados con ORDER BY
+
+**Módulo 2 — Modificar datos** ✅ completo
+- [x] INSERT — agregar filas nuevas
+- [x] UPDATE — modificar filas existentes
+- [x] DELETE — eliminar filas
+
+**Módulo 3 — Consultas avanzadas** (sin crear todavía)
+- [ ] JOIN — combinar datos de varias tablas
+- [ ] GROUP BY — agrupar y resumir datos
+- [ ] Funciones (COUNT, SUM, AVG, etc.)
+- [ ] Vistas
+- [ ] Transacciones
+- [ ] Índices
+- [ ] Consultas de diagnóstico
+
+## Etapa 3 — Supabase 🟡 EN PROGRESO
+
+*(ya se enlazó el concepto "Row Level Security" con la Lección 3 de este módulo)*
+
+**Módulo 1 — Primeros pasos con tu proyecto** ✅ completo
+- [x] Qué es un proyecto de Supabase y cómo se organiza
+- [x] El SQL Editor
+- [x] Authentication y la tabla auth.users
+
+**Módulo 2 — Seguridad y acceso a datos** (sin crear todavía)
+- [ ] Usuarios
+- [ ] Row Level Security
+- [ ] Policies
+- [ ] Claves anon y service role
+- [ ] Buenas prácticas de seguridad
+
+**Módulo 3 — Funciones y datos en tiempo real** (sin crear todavía)
+- [ ] Funciones PostgreSQL
+- [ ] RPC
+- [ ] Triggers
+- [ ] Storage
+- [ ] Realtime
+
+**Módulo 4 — Operación del proyecto** (sin crear todavía)
+- [ ] Migraciones
+- [ ] Backups
+- [ ] Logs
+- [ ] Stage y producción
+- [ ] Variables de entorno
+
+## Etapa 4 — Arquitectura de aplicaciones ⬜
+
+- [ ] Frontend
+- [ ] Backend
+- [ ] Base de datos
+- [ ] API
+- [ ] JSON
+- [ ] Estado de la aplicación
+- [ ] Sesiones
+- [ ] Autenticación
+- [ ] Autorización
+- [ ] Flujo de datos
+- [ ] Arquitectura multiusuario
+- [ ] Arquitectura multiempresa
+- [ ] Separación de ambientes
+
+## Etapa 5 — Desarrollo frontend ⬜
+
+- [ ] HTML
+- [ ] CSS
+- [ ] JavaScript
+- [ ] TypeScript
+- [ ] React
+- [ ] Componentes
+- [ ] Formularios
+- [ ] Validación
+- [ ] Manejo de errores
+- [ ] Diseño responsive
+- [ ] Accesibilidad básica
+
+## Etapa 6 — Git y GitHub ⬜
+
+*(esta etapa la vas a poder redactar en gran parte con lo que ya vivimos juntas subiendo el proyecto)*
+
+- [ ] Repositorios
+- [ ] Commits
+- [ ] Branches
+- [ ] Pull requests
+- [ ] Historial
+- [ ] Revert
+- [ ] Resolución de conflictos
+- [ ] Versiones
+- [ ] Releases
+- [ ] GitHub Pages
+- [ ] Flujo seguro de cambios
+
+## Etapa 7 — Seguridad práctica ⬜
+
+- [ ] Autenticación
+- [ ] Autorización
+- [ ] Principio de mínimo privilegio
+- [ ] RLS (a nivel de seguridad práctica, complementa lo de Supabase)
+- [ ] Protección de datos
+- [ ] Manejo de secretos
+- [ ] Validación de entradas
+- [ ] Seguridad del frontend
+- [ ] Seguridad del backend
+- [ ] Auditoría
+- [ ] Recuperación
+- [ ] Seguridad proporcional al riesgo
+
+## Etapa 8 — APIs y automatización ⬜
+
+- [ ] Qué es una API
+- [ ] REST
+- [ ] Métodos HTTP
+- [ ] Webhooks
+- [ ] Integraciones
+- [ ] Make
+- [ ] Automatización de procesos
+- [ ] Manejo de errores
+- [ ] Reintentos
+- [ ] Registro de eventos
+
+## Etapa 9 — Inteligencia artificial aplicada ⬜
+
+- [ ] Uso de IA para diseñar aplicaciones
+- [ ] Generación y revisión de código
+- [ ] Prompts técnicos
+- [ ] Uso responsable de agentes
+- [ ] Revisión de código generado
+- [ ] Diagnóstico de errores
+- [ ] Documentación con IA
+- [ ] Pruebas asistidas por IA
+- [ ] Automatización con IA
+
+## Etapa 10 — Gestión de productos digitales ⬜
+
+- [ ] Identificación de problemas
+- [ ] Requisitos
+- [ ] MVP
+- [ ] Historias de usuario
+- [ ] Priorización
+- [ ] Roadmap
+- [ ] Pruebas con usuarios
+- [ ] Documentación
+- [ ] Precios
+- [ ] SaaS
+- [ ] White label
+- [ ] Soporte y continuidad
+
+## Etapa 11 — DevOps básico ⬜
+
+- [ ] Entornos
+- [ ] Builds
+- [ ] Deploy
+- [ ] Vercel
+- [ ] Variables de entorno
+- [ ] Logs
+- [ ] Monitoreo
+- [ ] Rollback
+- [ ] Migraciones seguras
+- [ ] Integración continua
+- [ ] Copias de seguridad
+
+---
+
+## Biblioteca de Conceptos — conceptos cargados
+
+- [x] Row Level Security (RLS) — enlazado a "Authentication y la tabla auth.users" (Etapa 3)
+
+## Proyectos prácticos — registrados en la app
+
+- [ ] LillyTech OnboardFlow
+- [ ] Safety Academy
+- [ ] Bruno's Wordyssey
+- [ ] Control de vacaciones
+- [ ] Control de asistencia
+- [ ] Inventario
+- [ ] Pedido mensual
+
+*(estos no requieren que redacte contenido — son un formulario rápido que llenás vos misma desde `/projects`, cuando quieras)*

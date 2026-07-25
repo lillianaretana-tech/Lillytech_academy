@@ -33,6 +33,7 @@ La anon key es pública por diseño (se usa en el frontend), pero igual no se co
 1. Entrá al SQL Editor de tu proyecto Supabase (`rpvhdfvxroxdlagixupv`).
 2. Corré, en orden, cada archivo de `supabase/migrations/` (del `0001` al `0013`).
 3. Corré, en orden, cada archivo de `supabase/seed/` (del `0001` al `0004`).
+   A partir de `0005`, revisá primero el encabezado de cada archivo — algunos quedan documentados ahí pero ya fueron cargados a mano desde `/admin` y no deben volver a correrse sobre una base de datos que ya tiene ese contenido (solo harían falta si reconstruís la base desde cero).
 4. Para que tu propio usuario tenga permisos de administradora, después de registrarte en la app corré:
    ```sql
    insert into public.user_roles (user_id, role)
