@@ -3,8 +3,9 @@
 -- funciones de agregación, vistas, transacciones, índices, consultas de
 -- diagnóstico. Corré este archivo completo de una sola vez en el SQL Editor.
 
-insert into public.modules (id, course_id, title, description, order_index, is_published) values
-  ('350688ac-c0c0-473f-b03a-4a07e8215765', '693d80c7-de35-4321-8048-970ff2aae3b3', 'Consultas avanzadas', 'JOIN, agregaciones, vistas, transacciones, índices y diagnóstico — lo que se necesita para consultas del mundo real.', 3, true);
+insert into public.modules (id, course_id, title, description, order_index, is_published)
+select '350688ac-c0c0-473f-b03a-4a07e8215765', id, 'Consultas avanzadas', 'JOIN, agregaciones, vistas, transacciones, índices y diagnóstico — lo que se necesita para consultas del mundo real.', 3, true
+from public.courses where title = 'SQL desde cero hasta consultas de diagnóstico';
 
 insert into public.lessons (
   id, module_id, title, summary, objectives, content, example,

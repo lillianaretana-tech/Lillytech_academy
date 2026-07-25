@@ -42,12 +42,12 @@ Vamos tachando acá conforme carguemos lecciones reales. La estructura (etapas/c
 - [x] El SQL Editor
 - [x] Authentication y la tabla auth.users
 
-**Módulo 2 — Seguridad y acceso a datos** (sin crear todavía)
-- [ ] Usuarios
-- [ ] Row Level Security
-- [ ] Policies
-- [ ] Claves anon y service role
-- [ ] Buenas prácticas de seguridad
+**Módulo 2 — Seguridad y acceso a datos** ✅ completo
+- [x] Usuarios (de auth.users al panel de Authentication)
+- [x] Row Level Security (activación práctica)
+- [x] Policies (USING vs WITH CHECK)
+- [x] Claves anon y service role
+- [x] Buenas prácticas de seguridad
 
 **Módulo 3 — Funciones y datos en tiempo real** (sin crear todavía)
 - [ ] Funciones PostgreSQL
@@ -182,7 +182,7 @@ Vamos tachando acá conforme carguemos lecciones reales. La estructura (etapas/c
 
 ## Biblioteca de Conceptos — conceptos cargados
 
-- [x] Row Level Security (RLS) — enlazado a "Authentication y la tabla auth.users" y a "Consultas de diagnóstico" (Etapa 3 y Etapa 2)
+- [x] Row Level Security (RLS) — enlazado a 5 lecciones: "Authentication y la tabla auth.users", "Consultas de diagnóstico" (SQL), y las 4 lecciones del Módulo 2 de Supabase
 
 ## Proyectos prácticos — registrados en la app
 
