@@ -8,6 +8,9 @@ import type {
   Profile,
   LessonProgressRow,
   LessonResource,
+  Concept,
+  ConceptRelation,
+  ConceptResource,
 } from '@/types/database.types'
 
 // Estas consultas traen TODO (publicado o no) — son exclusivas del panel
@@ -200,6 +203,164 @@ export async function adminAddLessonResource(
 export async function adminDeleteLessonResource(id: string): Promise<void> {
   const { error } = await supabase.from('lesson_resources').delete().eq('id', id)
   if (error) throw error
+}
+
+// ---- Biblioteca de Conceptos (v1.2) ----
+
+function slugify(title: string): string {
+  return title
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '') // quita acentos
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '')
+}
+
+export async function adminListConcepts(): Promise<Concept[]> {
+  const { data, error } = await supabase
+    .from('concepts')
+    .select('*')
+    .order('title', { ascending: true })
+  if (error) throw error
+  return (data ?? []) as Concept[]
+}
+
+export async function adminGetConcept(id: string): Promise<Concept | null> {
+  const { data, error } = await supabase.from('concepts').select('*').eq('id', id).maybeSingle()
+  if (error) throw error
+  return data as Concept | null
+}
+
+export async function adminCreateConcept(title: string): Promise<Concept> {
+  const baseSlug = slugify(title)
+  // Evita choques de slug si ya existe uno igual — le agrega un sufijo corto.
+  let slug = baseSlug
+  const { data: existing } = await supabase.from('concepts').select('slug').eq('slug', slug)
+  if (existing && existing.length > 0) slug = `${baseSlug}-${Date.now().toString(36)}`
+
+  const { data, error } = await supabase
+    .from('concepts')
+    .insert({ title, slug })
+    .select()
+    .single()
+  if (error) throw error
+  return data as Concept
+}
+
+export async function adminUpdateConcept(id: string, patch: Partial<Concept>): Promise<void> {
+  const { error } = await supabase.from('concepts').update(patch).eq('id', id)
+  if (error) throw error
+}
+
+export async function adminDeleteConcept(id: string): Promise<void> {
+  const { error } = await supabase.from('concepts').delete().eq('id', id)
+  if (error) throw error
+}
+
+export async function adminListAllConceptRelations(
+  conceptId: string,
+): Promise<(ConceptRelation & { toTitle?: string; fromTitle?: string })[]> {
+  const [{ data: outgoing, error: outError }, { data: incoming, error: inError }] =
+    await Promise.all([
+      supabase
+        .from('concept_relations')
+        .select('*, concepts!concept_relations_to_concept_id_fkey(title)')
+        .eq('from_concept_id', conceptId),
+      supabase
+        .from('concept_relations')
+        .select('*, concepts!concept_relations_from_concept_id_fkey(title)')
+        .eq('to_concept_id', conceptId),
+    ])
+  if (outError) throw outError
+  if (inError) throw inError
+  const out = ((outgoing ?? []) as any[]).map((r) => ({ ...r, toTitle: r.concepts?.title }))
+  const inc = ((incoming ?? []) as any[]).map((r) => ({ ...r, fromTitle: r.concepts?.title }))
+  return [...out, ...inc] as (ConceptRelation & { toTitle?: string; fromTitle?: string })[]
+}
+
+export async function adminAddConceptRelation(
+  fromConceptId: string,
+  toConceptId: string,
+  relationType: string,
+): Promise<void> {
+  const { error } = await supabase
+    .from('concept_relations')
+    .insert({ from_concept_id: fromConceptId, to_concept_id: toConceptId, relation_type: relationType })
+  if (error) throw error
+}
+
+export async function adminDeleteConceptRelation(id: string): Promise<void> {
+  const { error } = await supabase.from('concept_relations').delete().eq('id', id)
+  if (error) throw error
+}
+
+export async function adminListConceptResources(conceptId: string): Promise<ConceptResource[]> {
+  const { data, error } = await supabase
+    .from('concept_resources')
+    .select('*')
+    .eq('concept_id', conceptId)
+    .order('order_index', { ascending: true })
+  if (error) throw error
+  return (data ?? []) as ConceptResource[]
+}
+
+export async function adminAddConceptResource(
+  conceptId: string,
+  title: string,
+  url: string,
+  orderIndex: number,
+): Promise<ConceptResource> {
+  const { data, error } = await supabase
+    .from('concept_resources')
+    .insert({ concept_id: conceptId, title, url, order_index: orderIndex })
+    .select()
+    .single()
+  if (error) throw error
+  return data as ConceptResource
+}
+
+export async function adminDeleteConceptResource(id: string): Promise<void> {
+  const { error } = await supabase.from('concept_resources').delete().eq('id', id)
+  if (error) throw error
+}
+
+export async function adminListConceptLessons(conceptId: string): Promise<Lesson[]> {
+  const { data, error } = await supabase
+    .from('concept_lessons')
+    .select('id, lesson:lessons(*)')
+    .eq('concept_id', conceptId)
+  if (error) throw error
+  return ((data ?? []) as unknown as { lesson: Lesson }[]).map((r) => r.lesson).filter(Boolean)
+}
+
+export async function adminLinkConceptLesson(conceptId: string, lessonId: string): Promise<void> {
+  const { error } = await supabase
+    .from('concept_lessons')
+    .insert({ concept_id: conceptId, lesson_id: lessonId })
+  if (error && error.code !== '23505') throw error
+}
+
+export async function adminUnlinkConceptLesson(conceptId: string, lessonId: string): Promise<void> {
+  const { error } = await supabase
+    .from('concept_lessons')
+    .delete()
+    .eq('concept_id', conceptId)
+    .eq('lesson_id', lessonId)
+  if (error) throw error
+}
+
+// Todas las lecciones publicadas o no, para el selector de "enlazar lección"
+// en el editor de conceptos.
+export async function adminListAllLessonsFlat(): Promise<(Lesson & { pathTitle: string })[]> {
+  const { data, error } = await supabase
+    .from('lessons')
+    .select('*, modules(course_id, courses(stage_id, stages(path_id, learning_paths(title))))')
+    .order('title', { ascending: true })
+  if (error) throw error
+  return ((data ?? []) as any[]).map((row) => ({
+    ...row,
+    pathTitle: row.modules?.courses?.stages?.learning_paths?.title ?? '',
+  }))
 }
 
 // Progreso de todas las estudiantes (solo admin puede leer, vía RLS).

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useAuth } from '@/features/auth/hooks/useAuth'
 import { getLesson, listLessonResources } from '@/services/learningStructure.service'
+import { getLessonConcepts } from '@/services/concepts.service'
 import { getLessonProgress, setLessonStatus } from '@/services/progress.service'
 import { listNotesForLesson, createNote, deleteNote } from '@/services/notes.service'
 import { listQuestionsForLesson, createQuestion } from '@/services/questions.service'
@@ -14,6 +15,7 @@ import type {
   Exercise,
   ExerciseResponse,
   LessonResource,
+  Concept,
 } from '@/types/database.types'
 
 export function LessonPage() {
@@ -27,6 +29,7 @@ export function LessonPage() {
   const [exercises, setExercises] = useState<Exercise[]>([])
   const [responses, setResponses] = useState<ExerciseResponse[]>([])
   const [resources, setResources] = useState<LessonResource[]>([])
+  const [relatedConcepts, setRelatedConcepts] = useState<Concept[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -40,7 +43,7 @@ export function LessonPage() {
     setLoading(true)
     setError(null)
     try {
-      const [lessonData, progressData, notesData, questionsData, exercisesData, responsesData, resourcesData] =
+      const [lessonData, progressData, notesData, questionsData, exercisesData, responsesData, resourcesData, conceptsData] =
         await Promise.all([
           getLesson(lessonId),
           getLessonProgress(user.id, lessonId),
@@ -49,6 +52,7 @@ export function LessonPage() {
           listExercisesForLesson(lessonId),
           listMyResponsesForLesson(user.id, lessonId),
           listLessonResources(lessonId),
+          getLessonConcepts(lessonId),
         ])
       setLesson(lessonData)
       setStatus(progressData?.status ?? 'not_started')
@@ -57,6 +61,7 @@ export function LessonPage() {
       setExercises(exercisesData)
       setResponses(responsesData)
       setResources(resourcesData as LessonResource[])
+      setRelatedConcepts(conceptsData)
 
       // Si es la primera vez que abre la lección, la marca en progreso automáticamente.
       if (!progressData) {
@@ -181,6 +186,22 @@ export function LessonPage() {
           {lesson.prerequisites && <span>Requiere: {lesson.prerequisites}</span>}
         </div>
       </div>
+
+      {relatedConcepts.length > 0 && (
+        <Section title="Conceptos relacionados">
+          <div className="flex flex-wrap gap-2">
+            {relatedConcepts.map((concept) => (
+              <Link
+                key={concept.id}
+                to={`/concepts/${concept.id}`}
+                className="rounded-full bg-brass/10 px-3 py-1 text-xs text-brass-dark hover:bg-brass/20"
+              >
+                {concept.title}
+              </Link>
+            ))}
+          </div>
+        </Section>
+      )}
 
       {lesson.objectives && (
         <Section title="Objetivos">

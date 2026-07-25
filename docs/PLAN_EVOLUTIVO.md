@@ -56,7 +56,7 @@ Dos cosas en esta versión, agrupadas porque ambas son "terminar lo que ya empez
 
 ---
 
-## v1.2 — Biblioteca de Conceptos, vista completa (Prioridad 1 terminada)
+## v1.2 — Biblioteca de Conceptos, vista completa (Prioridad 1 terminada) ✅ COMPLETADA
 
 **Complejidad:** M
 **Depende de:** v1.1 (esquema ya creado)

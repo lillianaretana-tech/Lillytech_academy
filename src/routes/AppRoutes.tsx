@@ -9,11 +9,15 @@ import { ForgotPasswordPage } from '@/pages/ForgotPasswordPage'
 import { DashboardPage } from '@/pages/DashboardPage'
 import { LibraryPage } from '@/pages/LibraryPage'
 import { LessonPage } from '@/pages/LessonPage'
+import { ConceptsLibraryPage } from '@/pages/ConceptsLibraryPage'
+import { ConceptDetailPage } from '@/pages/ConceptDetailPage'
 import { ProjectsPage } from '@/pages/ProjectsPage'
 import { NotesPage } from '@/pages/NotesPage'
 import { AdminContentPage } from '@/pages/admin/AdminContentPage'
 import { AdminLessonEditPage } from '@/pages/admin/AdminLessonEditPage'
 import { AdminProgressPage } from '@/pages/admin/AdminProgressPage'
+import { AdminConceptsPage } from '@/pages/admin/AdminConceptsPage'
+import { AdminConceptEditPage } from '@/pages/admin/AdminConceptEditPage'
 import { NotFoundPage } from '@/pages/NotFoundPage'
 
 export function AppRoutes() {
@@ -32,6 +36,8 @@ export function AppRoutes() {
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/library" element={<LibraryPage />} />
           <Route path="/lesson/:lessonId" element={<LessonPage />} />
+          <Route path="/concepts" element={<ConceptsLibraryPage />} />
+          <Route path="/concepts/:conceptId" element={<ConceptDetailPage />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/notes" element={<NotesPage />} />
 
@@ -39,6 +45,8 @@ export function AppRoutes() {
             <Route path="/admin" element={<AdminContentPage />} />
             <Route path="/admin/lessons/:lessonId" element={<AdminLessonEditPage />} />
             <Route path="/admin/progress" element={<AdminProgressPage />} />
+            <Route path="/admin/concepts" element={<AdminConceptsPage />} />
+            <Route path="/admin/concepts/:conceptId" element={<AdminConceptEditPage />} />
           </Route>
         </Route>
       </Route>

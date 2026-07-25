@@ -5,6 +5,7 @@ import { useAuth } from '@/features/auth/hooks/useAuth'
 const navItems = [
   { to: '/dashboard', label: 'Dashboard' },
   { to: '/library', label: 'Biblioteca' },
+  { to: '/concepts', label: 'Conceptos' },
   { to: '/projects', label: 'Proyectos' },
   { to: '/notes', label: 'Notas' },
 ]

@@ -2,7 +2,7 @@
 
 Academia personal de aprendizaje para LillyTech: rutas, etapas, cursos, módulos y lecciones con progreso, notas, dudas, ejercicios, proyectos prácticos y certificados internos.
 
-**Estado actual: v1.1 completa** (sobre las Fases 1-5 del MVP original, ya cerradas). Se resolvieron los 3 gaps detectados en la auditoría (recursos de lección visibles, buscador en Biblioteca, horas estudiadas en Dashboard) y se creó el fundamento de datos de la Biblioteca de Conceptos (`docs/PLAN_EVOLUTIVO.md`), sin UI todavía — eso es v1.2.
+**Estado actual: v1.2 completa.** La Biblioteca de Conceptos ya tiene vista completa: ficha por concepto (qué es, por qué existe, qué problema resuelve, cuándo usarlo, errores comunes, relaciones con otros conceptos, lecciones relacionadas, proyectos relacionados, recursos, notas personales), gestión completa desde `/admin/concepts`, y enlace cruzado desde cualquier lección. El primer concepto real (Row Level Security) ya está cargado. Falta v1.3 (nivel de dominio) en adelante — ver `docs/PLAN_EVOLUTIVO.md`.
 
 ## Requisitos
 
@@ -32,7 +32,7 @@ La anon key es pública por diseño (se usa en el frontend), pero igual no se co
 
 1. Entrá al SQL Editor de tu proyecto Supabase (`rpvhdfvxroxdlagixupv`).
 2. Corré, en orden, cada archivo de `supabase/migrations/` (del `0001` al `0013`).
-3. Corré, en orden, cada archivo de `supabase/seed/` (del `0001` al `0003`).
+3. Corré, en orden, cada archivo de `supabase/seed/` (del `0001` al `0004`).
 4. Para que tu propio usuario tenga permisos de administradora, después de registrarte en la app corré:
    ```sql
    insert into public.user_roles (user_id, role)

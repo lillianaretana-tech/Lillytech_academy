@@ -63,6 +63,9 @@ export function AdminContentPage() {
           <p className="text-sm text-ink-soft">Rutas, etapas, cursos, módulos y lecciones.</p>
         </div>
         <div className="flex gap-2">
+          <Link to="/admin/concepts" className="btn-secondary text-xs">
+            Conceptos
+          </Link>
           <Link to="/admin/progress" className="btn-secondary text-xs">
             Ver progreso
           </Link>

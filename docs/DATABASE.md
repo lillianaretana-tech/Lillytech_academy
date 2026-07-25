@@ -63,6 +63,7 @@ En `supabase/seed/`, correr después de las migraciones:
 1. `0001_seed_path_stages_courses.sql` — ruta + 11 etapas + 1 curso por etapa
 2. `0002_seed_modules_and_lessons.sql` — módulos de ejemplo + 3 lecciones completas (Etapa 1)
 3. `0003_seed_exercises.sql` — un ejercicio por cada una de las 3 lecciones
+4. `0004_seed_first_concept.sql` — primer concepto real de la Biblioteca de Conceptos (v1.2)
 
 ## Cómo correrlo
 
