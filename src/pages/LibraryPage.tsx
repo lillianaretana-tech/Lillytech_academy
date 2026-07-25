@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '@/features/auth/hooks/useAuth'
 import { listPublishedPaths, getPathTree, type PathTree } from '@/services/learningStructure.service'
@@ -13,6 +13,7 @@ export function LibraryPage() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [openStageId, setOpenStageId] = useState<string | null>(null)
+  const [search, setSearch] = useState('')
 
   useEffect(() => {
     async function load() {
@@ -43,6 +44,23 @@ export function LibraryPage() {
 
   const progressByLesson = new Map(progress.map((p) => [p.lesson_id, p.status]))
 
+  const searchResults = useMemo(() => {
+    if (!search.trim() || !selectedTree) return null
+    const q = search.toLowerCase()
+    const matches: { lesson: (typeof selectedTree.stages)[number]['courses'][number]['modules'][number]['lessons'][number]; stageTitle: string }[] = []
+    for (const stage of selectedTree.stages) {
+      for (const course of stage.courses) {
+        for (const mod of course.modules) {
+          for (const lesson of mod.lessons) {
+            const haystack = `${lesson.title} ${lesson.summary ?? ''}`.toLowerCase()
+            if (haystack.includes(q)) matches.push({ lesson, stageTitle: stage.title })
+          }
+        }
+      }
+    }
+    return matches
+  }, [search, selectedTree])
+
   if (loading) return <p className="text-sm text-ink-soft">Cargando biblioteca…</p>
 
   if (error) {
@@ -70,9 +88,40 @@ export function LibraryPage() {
   return (
     <div>
       <h1 className="mb-1 font-display text-2xl font-semibold text-ink">{selectedTree.title}</h1>
-      <p className="mb-6 text-sm text-ink-soft">{selectedTree.description}</p>
+      <p className="mb-4 text-sm text-ink-soft">{selectedTree.description}</p>
 
-      <div className="flex flex-col gap-3">
+      <input
+        className="input-field mb-4 max-w-sm"
+        placeholder="Buscar una lección…"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+
+      {searchResults ? (
+        <div className="flex flex-col gap-2">
+          {searchResults.length === 0 ? (
+            <p className="text-sm text-ink-soft">Ninguna lección coincide con "{search}".</p>
+          ) : (
+            searchResults.map(({ lesson, stageTitle }) => {
+              const status = progressByLesson.get(lesson.id) ?? 'not_started'
+              return (
+                <Link
+                  key={lesson.id}
+                  to={`/lesson/${lesson.id}`}
+                  className="card flex items-center justify-between hover:bg-paper-muted"
+                >
+                  <div>
+                    <p className="text-sm text-ink">{lesson.title}</p>
+                    <p className="text-xs text-ink-soft">{stageTitle}</p>
+                  </div>
+                  <StatusBadge status={status} />
+                </Link>
+              )
+            })
+          )}
+        </div>
+      ) : (
+        <div className="flex flex-col gap-3">
         {selectedTree.stages.map((stage) => {
           const isOpen = openStageId === stage.id
           const totalLessonsInStage = stage.courses.reduce(
@@ -134,7 +183,8 @@ export function LibraryPage() {
             </div>
           )
         })}
-      </div>
+        </div>
+      )}
     </div>
   )
 }

@@ -88,6 +88,16 @@ export async function getLesson(lessonId: string): Promise<Lesson | null> {
   return data as Lesson | null
 }
 
+export async function listLessonResources(lessonId: string) {
+  const { data, error } = await supabase
+    .from('lesson_resources')
+    .select('*')
+    .eq('lesson_id', lessonId)
+    .order('order_index', { ascending: true })
+  if (error) throw error
+  return data ?? []
+}
+
 // Trae la ruta completa (etapas > cursos > módulos > lecciones) en pocas
 // consultas, para armar la vista de Biblioteca sin N+1 por cada nivel.
 export interface PathTree extends LearningPath {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useAuth } from '@/features/auth/hooks/useAuth'
-import { getLesson } from '@/services/learningStructure.service'
+import { getLesson, listLessonResources } from '@/services/learningStructure.service'
 import { getLessonProgress, setLessonStatus } from '@/services/progress.service'
 import { listNotesForLesson, createNote, deleteNote } from '@/services/notes.service'
 import { listQuestionsForLesson, createQuestion } from '@/services/questions.service'
@@ -13,6 +13,7 @@ import type {
   LearningQuestion,
   Exercise,
   ExerciseResponse,
+  LessonResource,
 } from '@/types/database.types'
 
 export function LessonPage() {
@@ -25,6 +26,7 @@ export function LessonPage() {
   const [questions, setQuestions] = useState<LearningQuestion[]>([])
   const [exercises, setExercises] = useState<Exercise[]>([])
   const [responses, setResponses] = useState<ExerciseResponse[]>([])
+  const [resources, setResources] = useState<LessonResource[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -38,7 +40,7 @@ export function LessonPage() {
     setLoading(true)
     setError(null)
     try {
-      const [lessonData, progressData, notesData, questionsData, exercisesData, responsesData] =
+      const [lessonData, progressData, notesData, questionsData, exercisesData, responsesData, resourcesData] =
         await Promise.all([
           getLesson(lessonId),
           getLessonProgress(user.id, lessonId),
@@ -46,6 +48,7 @@ export function LessonPage() {
           listQuestionsForLesson(user.id, lessonId),
           listExercisesForLesson(lessonId),
           listMyResponsesForLesson(user.id, lessonId),
+          listLessonResources(lessonId),
         ])
       setLesson(lessonData)
       setStatus(progressData?.status ?? 'not_started')
@@ -53,6 +56,7 @@ export function LessonPage() {
       setQuestions(questionsData)
       setExercises(exercisesData)
       setResponses(responsesData)
+      setResources(resourcesData as LessonResource[])
 
       // Si es la primera vez que abre la lección, la marca en progreso automáticamente.
       if (!progressData) {
@@ -235,6 +239,25 @@ export function LessonPage() {
               )
             })}
           </div>
+        </Section>
+      )}
+
+      {resources.length > 0 && (
+        <Section title="Recursos">
+          <ul className="flex flex-col gap-1">
+            {resources.map((resource) => (
+              <li key={resource.id}>
+                <a
+                  href={resource.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-sm text-brass hover:underline"
+                >
+                  {resource.title}
+                </a>
+              </li>
+            ))}
+          </ul>
         </Section>
       )}
 

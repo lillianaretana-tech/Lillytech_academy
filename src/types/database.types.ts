@@ -202,6 +202,70 @@ export interface ApplicationSetting {
   updated_at: string
 }
 
+export type MasteryLevel = 'unknown' | 'understand' | 'can_explain' | 'can_apply' | 'can_teach'
+
+export interface Concept {
+  id: string
+  title: string
+  slug: string
+  what_is: string | null
+  why_it_exists: string | null
+  problem_it_solves: string | null
+  when_to_use: string | null
+  common_mistakes: string | null
+  is_published: boolean
+  created_by: string | null
+  created_at: string
+  updated_at: string
+}
+
+export interface ConceptRelation {
+  id: string
+  from_concept_id: string
+  to_concept_id: string
+  relation_type: string | null
+  created_at: string
+}
+
+export interface ConceptLesson {
+  id: string
+  concept_id: string
+  lesson_id: string
+}
+
+export interface ConceptProject {
+  id: string
+  concept_id: string
+  project_id: string
+}
+
+export interface ConceptResource {
+  id: string
+  concept_id: string
+  title: string
+  url: string
+  order_index: number
+  created_at: string
+}
+
+export interface ConceptNote {
+  id: string
+  user_id: string
+  concept_id: string
+  content: string
+  is_important: boolean
+  created_at: string
+  updated_at: string
+}
+
+export interface ConceptMastery {
+  id: string
+  user_id: string
+  concept_id: string
+  level: MasteryLevel
+  updated_at: string
+}
+
 // Placeholder mínimo del tipo Database para el cliente de Supabase.
 // Se reemplaza por el tipo generado automáticamente en la Fase 3.
 export interface Database {

@@ -7,6 +7,7 @@ import type {
   Stage,
   Profile,
   LessonProgressRow,
+  LessonResource,
 } from '@/types/database.types'
 
 // Estas consultas traen TODO (publicado o no) — son exclusivas del panel
@@ -168,6 +169,36 @@ export async function adminUpdateLesson(id: string, patch: Partial<Lesson>): Pro
 
 export async function adminDeleteLesson(id: string): Promise<void> {
   const { error } = await supabase.from('lessons').delete().eq('id', id)
+  if (error) throw error
+}
+
+export async function adminListLessonResources(lessonId: string): Promise<LessonResource[]> {
+  const { data, error } = await supabase
+    .from('lesson_resources')
+    .select('*')
+    .eq('lesson_id', lessonId)
+    .order('order_index', { ascending: true })
+  if (error) throw error
+  return (data ?? []) as LessonResource[]
+}
+
+export async function adminAddLessonResource(
+  lessonId: string,
+  title: string,
+  url: string,
+  orderIndex: number,
+): Promise<LessonResource> {
+  const { data, error } = await supabase
+    .from('lesson_resources')
+    .insert({ lesson_id: lessonId, title, url, order_index: orderIndex })
+    .select()
+    .single()
+  if (error) throw error
+  return data as LessonResource
+}
+
+export async function adminDeleteLessonResource(id: string): Promise<void> {
+  const { error } = await supabase.from('lesson_resources').delete().eq('id', id)
   if (error) throw error
 }
 

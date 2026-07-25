@@ -1,8 +1,13 @@
 import { useEffect, useState, type FormEvent } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { supabase } from '@/lib/supabaseClient'
-import { adminUpdateLesson } from '@/services/admin.service'
-import type { Lesson } from '@/types/database.types'
+import {
+  adminUpdateLesson,
+  adminListLessonResources,
+  adminAddLessonResource,
+  adminDeleteLessonResource,
+} from '@/services/admin.service'
+import type { Lesson, LessonResource } from '@/types/database.types'
 
 const textFields: { key: keyof Lesson; label: string; rows: number }[] = [
   { key: 'summary', label: 'Resumen', rows: 2 },
@@ -18,6 +23,9 @@ export function AdminLessonEditPage() {
   const { lessonId } = useParams<{ lessonId: string }>()
   const navigate = useNavigate()
   const [lesson, setLesson] = useState<Lesson | null>(null)
+  const [resources, setResources] = useState<LessonResource[]>([])
+  const [newResourceTitle, setNewResourceTitle] = useState('')
+  const [newResourceUrl, setNewResourceUrl] = useState('')
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [saved, setSaved] = useState(false)
@@ -28,10 +36,29 @@ export function AdminLessonEditPage() {
       setLoading(true)
       const { data } = await supabase.from('lessons').select('*').eq('id', lessonId).maybeSingle()
       setLesson(data as Lesson | null)
+      setResources(await adminListLessonResources(lessonId))
       setLoading(false)
     }
     load()
   }, [lessonId])
+
+  async function handleAddResource() {
+    if (!lessonId || !newResourceTitle.trim() || !newResourceUrl.trim()) return
+    const resource = await adminAddLessonResource(
+      lessonId,
+      newResourceTitle.trim(),
+      newResourceUrl.trim(),
+      resources.length,
+    )
+    setResources((prev) => [...prev, resource])
+    setNewResourceTitle('')
+    setNewResourceUrl('')
+  }
+
+  async function handleDeleteResource(id: string) {
+    await adminDeleteLessonResource(id)
+    setResources((prev) => prev.filter((r) => r.id !== id))
+  }
 
   function updateField<K extends keyof Lesson>(key: K, value: Lesson[K]) {
     if (!lesson) return
@@ -135,6 +162,53 @@ export function AdminLessonEditPage() {
             />
           </div>
         ))}
+
+        <div>
+          <label className="mb-2 block text-xs font-medium text-ink-soft">
+            Recursos relacionados
+          </label>
+          <div className="flex flex-col gap-2">
+            {resources.map((resource) => (
+              <div
+                key={resource.id}
+                className="flex items-center justify-between rounded-md bg-paper-muted px-3 py-2"
+              >
+                <a
+                  href={resource.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-sm text-brass hover:underline"
+                >
+                  {resource.title}
+                </a>
+                <button
+                  type="button"
+                  onClick={() => handleDeleteResource(resource.id)}
+                  className="text-xs text-ink-soft hover:text-rust"
+                >
+                  Eliminar
+                </button>
+              </div>
+            ))}
+            <div className="flex gap-2">
+              <input
+                className="input-field"
+                placeholder="Título del recurso"
+                value={newResourceTitle}
+                onChange={(e) => setNewResourceTitle(e.target.value)}
+              />
+              <input
+                className="input-field"
+                placeholder="URL"
+                value={newResourceUrl}
+                onChange={(e) => setNewResourceUrl(e.target.value)}
+              />
+              <button type="button" onClick={handleAddResource} className="btn-secondary text-xs">
+                Agregar
+              </button>
+            </div>
+          </div>
+        </div>
 
         <label className="flex items-center gap-2 text-sm text-ink">
           <input

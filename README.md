@@ -2,7 +2,7 @@
 
 Academia personal de aprendizaje para LillyTech: rutas, etapas, cursos, módulos y lecciones con progreso, notas, dudas, ejercicios, proyectos prácticos y certificados internos.
 
-**Estado actual: Fase 5 (administración) completa.** Dashboard, Biblioteca, lección, Notas, Proyectos y ahora Administración leen y escriben datos reales de Supabase — podés cargar todo el contenido de las etapas 2 a 11 vos misma desde `/admin`, sin tocar SQL. Falta certificados/historial completo (Fase 6) y la ronda final de pruebas (Fase 7).
+**Estado actual: v1.1 completa** (sobre las Fases 1-5 del MVP original, ya cerradas). Se resolvieron los 3 gaps detectados en la auditoría (recursos de lección visibles, buscador en Biblioteca, horas estudiadas en Dashboard) y se creó el fundamento de datos de la Biblioteca de Conceptos (`docs/PLAN_EVOLUTIVO.md`), sin UI todavía — eso es v1.2.
 
 ## Requisitos
 
@@ -31,7 +31,7 @@ La anon key es pública por diseño (se usa en el frontend), pero igual no se co
 ## Configurar la base de datos
 
 1. Entrá al SQL Editor de tu proyecto Supabase (`rpvhdfvxroxdlagixupv`).
-2. Corré, en orden, cada archivo de `supabase/migrations/` (del `0001` al `0011`).
+2. Corré, en orden, cada archivo de `supabase/migrations/` (del `0001` al `0013`).
 3. Corré, en orden, cada archivo de `supabase/seed/` (del `0001` al `0003`).
 4. Para que tu propio usuario tenga permisos de administradora, después de registrarte en la app corré:
    ```sql

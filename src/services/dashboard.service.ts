@@ -10,6 +10,7 @@ export interface DashboardData {
   completedLessons: number
   inProgressLessons: number
   percentComplete: number
+  studiedMinutes: number
   nextLesson: (Lesson & { moduleId: string }) | null
   recentActivity: LearningActivity[]
 }
@@ -28,6 +29,7 @@ export async function loadDashboard(userId: string): Promise<DashboardData> {
     completedLessons: 0,
     inProgressLessons: 0,
     percentComplete: 0,
+    studiedMinutes: 0,
     nextLesson: null,
     recentActivity: [],
   }
@@ -60,6 +62,10 @@ export async function loadDashboard(userId: string): Promise<DashboardData> {
     (l) => progressByLesson.get(l.id)?.status === 'in_progress',
   ).length
 
+  const studiedMinutes = allLessons
+    .filter((l) => progressByLesson.get(l.id)?.status === 'completed')
+    .reduce((acc, l) => acc + (l.estimated_minutes ?? 0), 0)
+
   const nextLesson =
     allLessons.find((l) => {
       const status = progressByLesson.get(l.id)?.status ?? 'not_started'
@@ -81,6 +87,7 @@ export async function loadDashboard(userId: string): Promise<DashboardData> {
     inProgressLessons,
     percentComplete:
       allLessons.length === 0 ? 0 : Math.round((completedLessons / allLessons.length) * 100),
+    studiedMinutes,
     nextLesson,
     recentActivity: (activity ?? []) as LearningActivity[],
   }

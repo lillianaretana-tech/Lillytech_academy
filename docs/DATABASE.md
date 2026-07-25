@@ -30,6 +30,13 @@ learning_paths → stages → courses → modules → lessons → exercises
 | `learning_activity` | Bitácora de eventos | Solo la propia |
 | `certificates` | Certificados emitidos | Solo los propios |
 | `application_settings` | Configuración general | Solo admin |
+| `concepts` | Ficha de concepto (Biblioteca de Conceptos, v1.1+) | Solo publicados |
+| `concept_relations` | Relación dirigida entre dos conceptos | Si el concepto origen está publicado |
+| `concept_lessons` | Relación concepto ↔ lección | Si el concepto está publicado |
+| `concept_projects` | Relación concepto ↔ proyecto práctico | Solo si el proyecto es propio |
+| `concept_resources` | Recursos de un concepto | Si el concepto está publicado |
+| `concept_notes` | Notas personales por concepto | Solo las propias |
+| `concept_mastery` | Nivel de dominio personal por concepto (v1.3) | Solo el propio |
 
 ## Migraciones
 
@@ -46,6 +53,8 @@ Están en `supabase/migrations/`, numeradas y pensadas para correr en orden:
 9. `0009_rls_exercises_and_progress.sql` — RLS de ejercicios/progreso
 10. `0010_rls_notes_questions_projects.sql` — RLS de notas/dudas/proyectos
 11. `0011_rls_activity_certificates_settings.sql` — RLS de historial/certificados/config
+12. `0012_concepts.sql` — esquema de la Biblioteca de Conceptos (v1.1): `concepts`, relaciones, notas y nivel de dominio
+13. `0013_rls_concepts.sql` — RLS de la Biblioteca de Conceptos
 
 ## Seed
 

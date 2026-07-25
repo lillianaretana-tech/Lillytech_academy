@@ -78,7 +78,7 @@ export function DashboardPage() {
       <h1 className="mb-1 font-display text-2xl font-semibold text-ink">Dashboard</h1>
       <p className="mb-6 text-sm text-ink-soft">Tu avance en {data.activePathTitle}.</p>
 
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
         <div className="card">
           <p className="text-xs uppercase tracking-wide text-ink-soft">Avance general</p>
           <p className="mt-1 font-display text-3xl font-semibold text-brass-dark">
@@ -104,6 +104,13 @@ export function DashboardPage() {
           <p className="text-xs uppercase tracking-wide text-ink-soft">En progreso</p>
           <p className="mt-1 font-display text-3xl font-semibold text-ink">
             {data.inProgressLessons}
+          </p>
+        </div>
+
+        <div className="card">
+          <p className="text-xs uppercase tracking-wide text-ink-soft">Tiempo estudiado</p>
+          <p className="mt-1 font-display text-3xl font-semibold text-ink">
+            {formatStudiedTime(data.studiedMinutes)}
           </p>
         </div>
       </div>
@@ -162,4 +169,11 @@ export function DashboardPage() {
       </div>
     </div>
   )
+}
+
+function formatStudiedTime(minutes: number): string {
+  if (minutes < 60) return `${minutes} min`
+  const hours = Math.floor(minutes / 60)
+  const rest = minutes % 60
+  return rest === 0 ? `${hours} h` : `${hours} h ${rest} min`
 }
