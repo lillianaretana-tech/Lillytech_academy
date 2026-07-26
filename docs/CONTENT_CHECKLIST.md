@@ -84,15 +84,20 @@ Vamos tachando acá conforme carguemos lecciones reales. La estructura (etapas/c
 - [x] Arquitectura multiempresa
 - [x] Separación de ambientes
 
-## Etapa 5 — Desarrollo frontend ⬜ SIGUIENTE RECOMENDADA
+## Etapa 5 — Desarrollo frontend 🟡 EN PROGRESO
 
-- [ ] HTML
-- [ ] CSS
-- [ ] JavaScript
-- [ ] TypeScript
+**Módulo 1 — Fundamentos web** ✅ completo
+- [x] HTML
+- [x] CSS
+- [x] JavaScript
+- [x] TypeScript
+
+**Módulo 2 — React en la práctica** (sin crear todavía)
 - [ ] React
 - [ ] Componentes
 - [ ] Formularios
+
+**Módulo 3 — Calidad de interfaz** (sin crear todavía)
 - [ ] Validación
 - [ ] Manejo de errores
 - [ ] Diseño responsive
