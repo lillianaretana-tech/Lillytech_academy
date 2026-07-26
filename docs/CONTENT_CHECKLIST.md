@@ -145,9 +145,9 @@ Vamos tachando acá conforme carguemos lecciones reales. La estructura (etapas/c
 - [x] Recuperación
 - [x] Seguridad proporcional al riesgo (repaso integrador)
 
-## Etapa 8 — APIs y automatización 🟡 EN PROGRESO
+## Etapa 8 — APIs y automatización ✅ COMPLETA
 
-*(2 de los 10 subtemas ya estaban desarrollados en Etapas 4 y 5 — se resuelven por enlace)*
+*(2 de los 10 subtemas ya estaban desarrollados en Etapas 4 y 5 — se resolvieron por enlace)*
 
 - [x] Qué es una API — ya cubierto en Etapa 4, "API: el contrato entre frontend y datos"
 - [x] Manejo de errores — ya cubierto en Etapa 5, "Manejo de errores: cuando algo sale mal"
@@ -161,12 +161,12 @@ Vamos tachando acá conforme carguemos lecciones reales. La estructura (etapas/c
 - [x] Integraciones
 - [x] Make
 
-**Módulo 3 — Automatización robusta** (sin crear todavía)
-- [ ] Automatización de procesos
-- [ ] Reintentos
-- [ ] Registro de eventos
+**Módulo 3 — Automatización robusta** ✅ completo
+- [x] Automatización de procesos
+- [x] Reintentos
+- [x] Registro de eventos
 
-## Etapa 9 — Inteligencia artificial aplicada ⬜
+## Etapa 9 — Inteligencia artificial aplicada ⬜ SIGUIENTE RECOMENDADA
 
 - [ ] Uso de IA para diseñar aplicaciones
 - [ ] Generación y revisión de código
