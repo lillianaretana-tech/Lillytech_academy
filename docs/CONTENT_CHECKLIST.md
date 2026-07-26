@@ -103,7 +103,7 @@ Vamos tachando acá conforme carguemos lecciones reales. La estructura (etapas/c
 - [x] Diseño responsive
 - [x] Accesibilidad básica
 
-## Etapa 6 — Git y GitHub 🟡 EN PROGRESO
+## Etapa 6 — Git y GitHub ✅ COMPLETA
 
 **Módulo 1 — Lo básico, ya vivido en este proyecto** ✅ completo
 - [x] Repositorios
@@ -116,13 +116,13 @@ Vamos tachando acá conforme carguemos lecciones reales. La estructura (etapas/c
 - [x] Revert
 - [x] Resolución de conflictos
 
-**Módulo 3 — Publicar y versionar** (sin crear todavía)
-- [ ] Versiones
-- [ ] Releases
-- [ ] GitHub Pages
-- [ ] Flujo seguro de cambios
+**Módulo 3 — Publicar y versionar** ✅ completo
+- [x] Versiones
+- [x] Releases
+- [x] GitHub Pages
+- [x] Flujo seguro de cambios
 
-## Etapa 7 — Seguridad práctica ⬜
+## Etapa 7 — Seguridad práctica ⬜ SIGUIENTE RECOMENDADA
 
 - [ ] Autenticación
 - [ ] Autorización
