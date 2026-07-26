@@ -136,9 +136,9 @@ Vamos tachando acá conforme carguemos lecciones reales. La estructura (etapas/c
 - [x] Protección de datos
 - [x] Manejo de secretos
 
-**Módulo 2 — Seguridad por capas** (sin crear todavía)
-- [ ] Seguridad del frontend
-- [ ] Seguridad del backend
+**Módulo 2 — Seguridad por capas** ✅ completo
+- [x] Seguridad del frontend
+- [x] Seguridad del backend
 
 **Módulo 3 — Cuando algo falla** (sin crear todavía)
 - [ ] Auditoría
