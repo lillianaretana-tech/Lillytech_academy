@@ -2,7 +2,7 @@
 
 Academia personal de aprendizaje para LillyTech: rutas, etapas, cursos, módulos y lecciones con progreso, notas, dudas, ejercicios, proyectos prácticos y certificados internos.
 
-**Estado actual: v1.6 completa — toda la estructura del plan evolutivo está construida.** Buscador global (`/search`, accesible desde cualquier pantalla) sobre conceptos, lecciones, notas y proyectos. Dashboard ampliado con indicadores de aprendizaje (conceptos aprendidos, dudas resueltas, notas creadas, proyectos, progreso por etapa). De acá en más, el trabajo que sigue es cargar contenido real — ver `docs/PLAN_EVOLUTIVO.md` para la visión futura (v2/v3, Asistente de Aprendizaje IA) cuando haya volumen suficiente.
+**Estado actual: v1.6 completa, y las 11 etapas de la ruta "Desarrollo de Aplicaciones LillyTech" tienen contenido real, cargado y publicado** (ver `docs/CONTENT_CHECKLIST.md` para el detalle). Toda la estructura del Plan Evolutivo (Biblioteca de Conceptos con nivel de dominio, Bitácora, buscador global, indicadores de aprendizaje) está construida y funcionando. Pendiente real: el primer deploy a Vercel (documentado en `docs/GITHUB_SETUP.md`, ver también la Etapa 11 de contenido) y la visión futura v2/v3 (Asistente de Aprendizaje IA, ver `docs/PLAN_EVOLUTIVO.md`).
 
 ## Requisitos
 

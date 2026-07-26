@@ -1,5 +1,7 @@
 # LillyTech Academy — Checklist de contenido
 
+## 🎉 RUTA COMPLETA — Las 11 etapas de "Desarrollo de Aplicaciones LillyTech" tienen contenido real, cargado y publicado.
+
 Vamos tachando acá conforme carguemos lecciones reales. La estructura (etapas/cursos) ya existe para las 11 — esto es solo el contenido.
 
 ## Etapa 1 — Fundamentos de bases de datos ✅ COMPLETA
@@ -203,19 +205,27 @@ Vamos tachando acá conforme carguemos lecciones reales. La estructura (etapas/c
 - [x] White label
 - [x] Soporte y continuidad
 
-## Etapa 11 — DevOps básico ⬜ ÚLTIMA ETAPA
+## Etapa 11 — DevOps básico ✅ COMPLETA — ¡ÚLTIMA ETAPA, RUTA TERMINADA!
 
-- [ ] Entornos
-- [ ] Builds
-- [ ] Deploy
-- [ ] Vercel
-- [ ] Variables de entorno
-- [ ] Logs
-- [ ] Monitoreo
-- [ ] Rollback
-- [ ] Migraciones seguras
-- [ ] Integración continua
-- [ ] Copias de seguridad
+*(4 de los 11 subtemas ya estaban desarrollados en Etapas 3 y 5 — se resolvieron por enlace)*
+
+- [x] Variables de entorno — ya cubierto en Etapa 5, "Variables de entorno: configuración que no vive en el código"
+- [x] Logs — ya cubierto en Etapa 3, "Logs: qué pasó realmente"
+- [x] Migraciones seguras — ya cubierto en Etapa 3, "Migraciones: cambios de esquema con historial"
+- [x] Copias de seguridad — ya cubierto en Etapa 3, "Backups: qué pasa si algo sale mal"
+
+**Módulo 1 — Preparar el código para producción** ✅ completo
+- [x] Entornos
+- [x] Builds
+
+**Módulo 2 — Publicar de verdad** ✅ completo
+- [x] Deploy
+- [x] Vercel
+
+**Módulo 3 — Mantenerlo vivo** ✅ completo
+- [x] Monitoreo
+- [x] Rollback
+- [x] Integración continua (cierre de toda la ruta)
 
 ---
 
