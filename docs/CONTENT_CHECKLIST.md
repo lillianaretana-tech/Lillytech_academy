@@ -103,17 +103,20 @@ Vamos tachando acá conforme carguemos lecciones reales. La estructura (etapas/c
 - [x] Diseño responsive
 - [x] Accesibilidad básica
 
-## Etapa 6 — Git y GitHub ⬜ SIGUIENTE RECOMENDADA
+## Etapa 6 — Git y GitHub 🟡 EN PROGRESO
 
-*(esta etapa la vas a poder redactar en gran parte con lo que ya vivimos juntas subiendo el proyecto)*
+**Módulo 1 — Lo básico, ya vivido en este proyecto** ✅ completo
+- [x] Repositorios
+- [x] Commits
+- [x] Historial
 
-- [ ] Repositorios
-- [ ] Commits
+**Módulo 2 — Trabajar con cambios** (sin crear todavía)
 - [ ] Branches
 - [ ] Pull requests
-- [ ] Historial
 - [ ] Revert
 - [ ] Resolución de conflictos
+
+**Módulo 3 — Publicar y versionar** (sin crear todavía)
 - [ ] Versiones
 - [ ] Releases
 - [ ] GitHub Pages
