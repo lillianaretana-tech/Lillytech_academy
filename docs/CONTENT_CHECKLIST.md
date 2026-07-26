@@ -110,11 +110,11 @@ Vamos tachando acá conforme carguemos lecciones reales. La estructura (etapas/c
 - [x] Commits
 - [x] Historial
 
-**Módulo 2 — Trabajar con cambios** (sin crear todavía)
-- [ ] Branches
-- [ ] Pull requests
-- [ ] Revert
-- [ ] Resolución de conflictos
+**Módulo 2 — Trabajar con cambios** ✅ completo
+- [x] Branches
+- [x] Pull requests
+- [x] Revert
+- [x] Resolución de conflictos
 
 **Módulo 3 — Publicar y versionar** (sin crear todavía)
 - [ ] Versiones
