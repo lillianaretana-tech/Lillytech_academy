@@ -166,19 +166,24 @@ Vamos tachando acá conforme carguemos lecciones reales. La estructura (etapas/c
 - [x] Reintentos
 - [x] Registro de eventos
 
-## Etapa 9 — Inteligencia artificial aplicada ⬜ SIGUIENTE RECOMENDADA
+## Etapa 9 — Inteligencia artificial aplicada ✅ COMPLETA
 
-- [ ] Uso de IA para diseñar aplicaciones
-- [ ] Generación y revisión de código
-- [ ] Prompts técnicos
-- [ ] Uso responsable de agentes
-- [ ] Revisión de código generado
-- [ ] Diagnóstico de errores
-- [ ] Documentación con IA
-- [ ] Pruebas asistidas por IA
-- [ ] Automatización con IA
+**Módulo 1 — Diseñar con IA** ✅ completo
+- [x] Uso de IA para diseñar aplicaciones
+- [x] Prompts técnicos
+- [x] Uso responsable de agentes
 
-## Etapa 10 — Gestión de productos digitales ⬜
+**Módulo 2 — Código generado** ✅ completo
+- [x] Generación y revisión de código
+- [x] Revisión de código generado
+- [x] Diagnóstico de errores
+
+**Módulo 3 — Más allá del código** ✅ completo
+- [x] Documentación con IA
+- [x] Pruebas asistidas por IA
+- [x] Automatización con IA
+
+## Etapa 10 — Gestión de productos digitales ⬜ SIGUIENTE RECOMENDADA
 
 - [ ] Identificación de problemas
 - [ ] Requisitos
