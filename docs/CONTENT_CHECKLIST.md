@@ -145,16 +145,24 @@ Vamos tachando acá conforme carguemos lecciones reales. La estructura (etapas/c
 - [x] Recuperación
 - [x] Seguridad proporcional al riesgo (repaso integrador)
 
-## Etapa 8 — APIs y automatización ⬜ SIGUIENTE RECOMENDADA
+## Etapa 8 — APIs y automatización 🟡 EN PROGRESO
 
-- [ ] Qué es una API
-- [ ] REST
-- [ ] Métodos HTTP
+*(2 de los 10 subtemas ya estaban desarrollados en Etapas 4 y 5 — se resuelven por enlace)*
+
+- [x] Qué es una API — ya cubierto en Etapa 4, "API: el contrato entre frontend y datos"
+- [x] Manejo de errores — ya cubierto en Etapa 5, "Manejo de errores: cuando algo sale mal"
+
+**Módulo 1 — Cómo hablan los sistemas** ✅ completo
+- [x] REST
+- [x] Métodos HTTP
+
+**Módulo 2 — Conectar sistemas externos** (sin crear todavía)
 - [ ] Webhooks
 - [ ] Integraciones
 - [ ] Make
+
+**Módulo 3 — Automatización robusta** (sin crear todavía)
 - [ ] Automatización de procesos
-- [ ] Manejo de errores
 - [ ] Reintentos
 - [ ] Registro de eventos
 
