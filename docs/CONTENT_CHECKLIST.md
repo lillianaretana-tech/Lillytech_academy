@@ -122,13 +122,13 @@ Vamos tachando acá conforme carguemos lecciones reales. La estructura (etapas/c
 - [x] GitHub Pages
 - [x] Flujo seguro de cambios
 
-## Etapa 7 — Seguridad práctica 🟡 EN PROGRESO
+## Etapa 7 — Seguridad práctica ✅ COMPLETA
 
-*(4 de los 12 subtemas ya estaban desarrollados en Etapas 3 y 4 — se resuelven por enlace, no con lecciones duplicadas)*
+*(4 de los 12 subtemas ya estaban desarrollados en Etapas 3 y 4 — se resolvieron por enlace, no con lecciones duplicadas)*
 
 - [x] Autenticación — ya cubierto en Etapa 4, "Autenticación: probar quién sos"
 - [x] Autorización — ya cubierto en Etapa 4, "Autorización: qué podés hacer, ya sabiendo quién sos"
-- [x] RLS — ya cubierto en Etapa 3 (concepto + 5 lecciones enlazadas)
+- [x] RLS — ya cubierto en Etapa 3 (concepto + 7 lecciones enlazadas en total)
 - [x] Validación de entradas — ya cubierto en Etapa 5, "Validación: antes de confiar en un dato"
 
 **Módulo 1 — Principios transversales** ✅ completo
@@ -140,12 +140,12 @@ Vamos tachando acá conforme carguemos lecciones reales. La estructura (etapas/c
 - [x] Seguridad del frontend
 - [x] Seguridad del backend
 
-**Módulo 3 — Cuando algo falla** (sin crear todavía)
-- [ ] Auditoría
-- [ ] Recuperación
-- [ ] Seguridad proporcional al riesgo (repaso integrador — ya mencionado como idea en Etapa 3)
+**Módulo 3 — Cuando algo falla** ✅ completo
+- [x] Auditoría
+- [x] Recuperación
+- [x] Seguridad proporcional al riesgo (repaso integrador)
 
-## Etapa 8 — APIs y automatización ⬜
+## Etapa 8 — APIs y automatización ⬜ SIGUIENTE RECOMENDADA
 
 - [ ] Qué es una API
 - [ ] REST
