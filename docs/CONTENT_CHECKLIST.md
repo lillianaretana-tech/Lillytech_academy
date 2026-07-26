@@ -183,22 +183,27 @@ Vamos tachando acá conforme carguemos lecciones reales. La estructura (etapas/c
 - [x] Pruebas asistidas por IA
 - [x] Automatización con IA
 
-## Etapa 10 — Gestión de productos digitales ⬜ SIGUIENTE RECOMENDADA
+## Etapa 10 — Gestión de productos digitales ✅ COMPLETA
 
-- [ ] Identificación de problemas
-- [ ] Requisitos
-- [ ] MVP
-- [ ] Historias de usuario
-- [ ] Priorización
-- [ ] Roadmap
-- [ ] Pruebas con usuarios
-- [ ] Documentación
-- [ ] Precios
-- [ ] SaaS
-- [ ] White label
-- [ ] Soporte y continuidad
+**Módulo 1 — Definir el problema** ✅ completo
+- [x] Identificación de problemas
+- [x] Requisitos
+- [x] MVP
+- [x] Historias de usuario
 
-## Etapa 11 — DevOps básico ⬜
+**Módulo 2 — Planificar y documentar** ✅ completo
+- [x] Priorización
+- [x] Roadmap
+- [x] Pruebas con usuarios
+- [x] Documentación
+
+**Módulo 3 — Convertirlo en negocio** ✅ completo
+- [x] Precios
+- [x] SaaS
+- [x] White label
+- [x] Soporte y continuidad
+
+## Etapa 11 — DevOps básico ⬜ ÚLTIMA ETAPA
 
 - [ ] Entornos
 - [ ] Builds
