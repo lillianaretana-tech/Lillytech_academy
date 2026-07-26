@@ -92,10 +92,10 @@ Vamos tachando acá conforme carguemos lecciones reales. La estructura (etapas/c
 - [x] JavaScript
 - [x] TypeScript
 
-**Módulo 2 — React en la práctica** (sin crear todavía)
-- [ ] React
-- [ ] Componentes
-- [ ] Formularios
+**Módulo 2 — React en la práctica** ✅ completo
+- [x] React
+- [x] Componentes
+- [x] Formularios
 
 **Módulo 3 — Calidad de interfaz** (sin crear todavía)
 - [ ] Validación
