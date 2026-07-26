@@ -156,10 +156,10 @@ Vamos tachando acá conforme carguemos lecciones reales. La estructura (etapas/c
 - [x] REST
 - [x] Métodos HTTP
 
-**Módulo 2 — Conectar sistemas externos** (sin crear todavía)
-- [ ] Webhooks
-- [ ] Integraciones
-- [ ] Make
+**Módulo 2 — Conectar sistemas externos** ✅ completo
+- [x] Webhooks
+- [x] Integraciones
+- [x] Make
 
 **Módulo 3 — Automatización robusta** (sin crear todavía)
 - [ ] Automatización de procesos
