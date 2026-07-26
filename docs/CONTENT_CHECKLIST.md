@@ -122,20 +122,28 @@ Vamos tachando acá conforme carguemos lecciones reales. La estructura (etapas/c
 - [x] GitHub Pages
 - [x] Flujo seguro de cambios
 
-## Etapa 7 — Seguridad práctica ⬜ SIGUIENTE RECOMENDADA
+## Etapa 7 — Seguridad práctica 🟡 EN PROGRESO
 
-- [ ] Autenticación
-- [ ] Autorización
-- [ ] Principio de mínimo privilegio
-- [ ] RLS (a nivel de seguridad práctica, complementa lo de Supabase)
-- [ ] Protección de datos
-- [ ] Manejo de secretos
-- [ ] Validación de entradas
+*(4 de los 12 subtemas ya estaban desarrollados en Etapas 3 y 4 — se resuelven por enlace, no con lecciones duplicadas)*
+
+- [x] Autenticación — ya cubierto en Etapa 4, "Autenticación: probar quién sos"
+- [x] Autorización — ya cubierto en Etapa 4, "Autorización: qué podés hacer, ya sabiendo quién sos"
+- [x] RLS — ya cubierto en Etapa 3 (concepto + 5 lecciones enlazadas)
+- [x] Validación de entradas — ya cubierto en Etapa 5, "Validación: antes de confiar en un dato"
+
+**Módulo 1 — Principios transversales** ✅ completo
+- [x] Principio de mínimo privilegio
+- [x] Protección de datos
+- [x] Manejo de secretos
+
+**Módulo 2 — Seguridad por capas** (sin crear todavía)
 - [ ] Seguridad del frontend
 - [ ] Seguridad del backend
+
+**Módulo 3 — Cuando algo falla** (sin crear todavía)
 - [ ] Auditoría
 - [ ] Recuperación
-- [ ] Seguridad proporcional al riesgo
+- [ ] Seguridad proporcional al riesgo (repaso integrador — ya mencionado como idea en Etapa 3)
 
 ## Etapa 8 — APIs y automatización ⬜
 
