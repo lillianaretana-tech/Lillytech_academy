@@ -84,7 +84,7 @@ Vamos tachando acá conforme carguemos lecciones reales. La estructura (etapas/c
 - [x] Arquitectura multiempresa
 - [x] Separación de ambientes
 
-## Etapa 5 — Desarrollo frontend 🟡 EN PROGRESO
+## Etapa 5 — Desarrollo frontend ✅ COMPLETA
 
 **Módulo 1 — Fundamentos web** ✅ completo
 - [x] HTML
@@ -97,13 +97,13 @@ Vamos tachando acá conforme carguemos lecciones reales. La estructura (etapas/c
 - [x] Componentes
 - [x] Formularios
 
-**Módulo 3 — Calidad de interfaz** (sin crear todavía)
-- [ ] Validación
-- [ ] Manejo de errores
-- [ ] Diseño responsive
-- [ ] Accesibilidad básica
+**Módulo 3 — Calidad de interfaz** ✅ completo
+- [x] Validación
+- [x] Manejo de errores
+- [x] Diseño responsive
+- [x] Accesibilidad básica
 
-## Etapa 6 — Git y GitHub ⬜
+## Etapa 6 — Git y GitHub ⬜ SIGUIENTE RECOMENDADA
 
 *(esta etapa la vas a poder redactar en gran parte con lo que ya vivimos juntas subiendo el proyecto)*
 
